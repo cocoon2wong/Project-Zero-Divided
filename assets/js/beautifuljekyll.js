@@ -10,11 +10,28 @@ let BeautifulJekyllJS = {
 
     // Shorten the navbar after scrolling a little bit down
     $(window).scroll(function() {
-        if ($(".navbar").offset().top > 50) {
+        if ($(".navbar").offset().top > 200) {
             $(".navbar").addClass("top-nav-short");
         } else {
             $(".navbar").removeClass("top-nav-short");
         }
+    });
+
+    big_img = false;
+    if ($(".top-nav-regular").length){big_img = true;}
+
+    $(window).scroll(function() {
+      if (big_img){
+        if ($(".navbar").offset().top > 200) {
+          $(".navbar-nav").removeClass("navbar-nav-background-short");
+          $(".navbar-custom").removeClass("navbar-color-custom-hide");
+          $(".navbar-custom").addClass("navbar-color-custom-show");
+        } else {
+          $(".navbar-nav").addClass("navbar-nav-background-short");
+          $(".navbar-custom").removeClass("navbar-color-custom-show");
+          $(".navbar-custom").addClass("navbar-color-custom-hide");
+        }
+      }
     });
 
     // On mobile, hide the avatar when expanding the navbar menu
@@ -43,6 +60,13 @@ let BeautifulJekyllJS = {
       $(".navbar").removeClass("navbar-light").addClass("navbar-dark");
     } else {
       $(".navbar").removeClass("navbar-dark").addClass("navbar-light");
+    }
+
+    // 带有缩放和导航栏动画
+    if ($(".top-nav-regular").length){
+      $(".navbar-nav").addClass("navbar-nav-background-short");
+      $(".navbar-custom").removeClass("navbar-color-custom-show");
+      $(".navbar-custom").addClass("navbar-color-custom-hide");
     }
   },
 

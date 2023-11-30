@@ -1,4 +1,14 @@
-<nav class="navbar navbar-expand-xl navbar-light fixed-top navbar-custom {% if page.nav-short %}top-nav-short-permanent{% else %}top-nav-regular{% endif %}">
+<!--
+ * @Author: Conghao Wong
+ * @Date: 2023-11-30 17:28:47
+ * @LastEditors: Conghao Wong
+ * @LastEditTime: 2023-11-30 17:36:00
+ * @Description: file content
+ * @Github: https://cocoon2wong.github.io
+ * Copyright 2023 Conghao Wong, All Rights Reserved.
+-->
+
+<nav class="navbar navbar-expand-xl navbar-light fixed-top navbar-custom {% if page.nav-short %}top-nav-short-permanent{% elsif page.cover-img %}top-nav-regular{% else %}top-nav-short-permanent{% endif %}">
 
   {%- if site.title-img -%}
     <a class="navbar-brand navbar-brand-logo" href="{{ '/' | absolute_url }}"><img alt="{{ site.title }} Logo" src="{{ site.title-img | relative_url}}"/></a>
@@ -11,7 +21,7 @@
   </button>
 
   <div class="collapse navbar-collapse" id="main-navbar">
-    <ul class="navbar-nav ml-auto">
+    <ul class="navbar-nav ml-auto navbar-nav-custom">
       {%- for link in site.navbar-links -%}
         {%- if link[1].first %}
           <li class="nav-item dropdown">
