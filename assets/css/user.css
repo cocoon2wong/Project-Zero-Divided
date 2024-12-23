@@ -6,7 +6,7 @@ layout: null
  * @Author: Conghao Wong
  * @Date: 2023-03-03 16:11:49
  * @LastEditors: Conghao Wong
- * @LastEditTime: 2023-04-28 18:47:26
+ * @LastEditTime: 2024-12-23 17:37:37
  * @Description: file content
  * @Github: https://cocoon2wong.github.io
  * Copyright 2023 Conghao Wong, All Rights Reserved.
@@ -78,18 +78,17 @@ layout: null
     color: rgb(0, 0, 0);
     background-color: rgb(236, 236, 236);
     border: 0;
+    border-radius: 8px;
 }
 
 .btn-colorful:hover {
     color: {{site.button-hover-text-color}};
     background-color: {{site.button-hover-color}};
     border-color: {{site.button-hover-color}};
-    border: 0;
 }
 
 .btn-colorful:active {
     color: {{site.button-active-text-color}};
     background-color: {{site.button-active-color}};
     border-color: {{site.button-active-color}};
-    border: 0;
 }

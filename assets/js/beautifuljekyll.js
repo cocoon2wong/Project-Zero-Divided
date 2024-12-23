@@ -23,13 +23,16 @@ let BeautifulJekyllJS = {
     $(window).scroll(function() {
       if (big_img){
         if ($(".navbar").offset().top > 200) {
-          $(".navbar-nav").removeClass("navbar-nav-background-short");
-          $(".navbar-custom").removeClass("navbar-color-custom-hide");
-          $(".navbar-custom").addClass("navbar-color-custom-show");
+          $(".navbar-nav").addClass("navbar-nav-transition");
+          $(".navbar-nav").removeClass("navbar-nav-float-enable");
+          $(".navbar-nav").addClass("navbar-nav-float-disable");
+          $(".navbar-custom").removeClass("navbar-float-enable");
+          $(".navbar-custom").addClass("navbar-float-disable");
         } else {
-          $(".navbar-nav").addClass("navbar-nav-background-short");
-          $(".navbar-custom").removeClass("navbar-color-custom-show");
-          $(".navbar-custom").addClass("navbar-color-custom-hide");
+          $(".navbar-nav").removeClass("navbar-nav-float-disable");
+          $(".navbar-nav").addClass("navbar-nav-float-enable");
+          $(".navbar-custom").removeClass("navbar-float-disable");
+          $(".navbar-custom").addClass("navbar-float-enable");
         }
       }
     });
@@ -61,12 +64,16 @@ let BeautifulJekyllJS = {
     } else {
       $(".navbar").removeClass("navbar-dark").addClass("navbar-light");
     }
-
+    
     // 带有缩放和导航栏动画
     if ($(".top-nav-regular").length){
-      $(".navbar-nav").addClass("navbar-nav-background-short");
-      $(".navbar-custom").removeClass("navbar-color-custom-show");
-      $(".navbar-custom").addClass("navbar-color-custom-hide");
+      $(".navbar-nav").removeClass("navbar-nav-float-disable");
+      $(".navbar-nav").addClass("navbar-nav-float-enable");
+      $(".navbar-custom").removeClass("navbar-float-disable");
+      $(".navbar-custom").addClass("navbar-float-enable");
+    } else {
+      $(".navbar-nav").addClass("navbar-nav-float-disable");
+      $(".navbar-custom").addClass("navbar-float-disable");
     }
   },
 
