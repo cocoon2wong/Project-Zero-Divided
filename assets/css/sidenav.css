@@ -5,7 +5,7 @@ layout: null
  * @Author: Conghao Wong
  * @Date: 2024-12-25 12:25:05
  * @LastEditors: Conghao Wong
- * @LastEditTime: 2024-12-25 16:43:57
+ * @LastEditTime: 2024-12-25 17:08:59
  * @Github: https://cocoon2wong.github.io
  * Copyright 2024 Conghao Wong, All Rights Reserved.
  */
@@ -29,10 +29,10 @@ layout: null
 
 .flex-column>.nav-link-side-h2.nav-link.active  {
     color: {{site.button-hover-text-color}};
-    background-color: {{site.button-hover-color}};
+    background-color: {{site.hover-col}};
 }
 
 .flex-column>.nav-link-side-h3.nav-link.active  {
-    color: {{site.button-hover-color}};
+    color: {{site.hover-col}};
     background-color: #eaeaea;
 }
