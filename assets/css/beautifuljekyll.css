@@ -41,7 +41,7 @@ h1 {
   font-size: 2.25rem;
 }
 h2 {
-  color: {{site.button-active-color}};
+  color: {{site.button-hover-color}};
   font-size: 1.875rem;
   padding-bottom: 8px;
   border-bottom: 1px solid #eaeaea;
