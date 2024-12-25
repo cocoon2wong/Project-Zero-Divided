@@ -2,44 +2,55 @@
  * @Author: Conghao Wong
  * @Date: 2023-04-28 19:02:49
  * @LastEditors: Conghao Wong
- * @LastEditTime: 2023-04-28 19:08:01
+ * @LastEditTime: 2024-12-25 14:48:06
  * @Description: file content
  * @Github: https://cocoon2wong.github.io
  * Copyright 2023 Conghao Wong, All Rights Reserved.
 -->
+
 <footer>
     {% if page.add-md-links %}
+    <link rel="stylesheet" href="/assets/css/sidenav.css">
     <script>
-        const table_of_contents = document.getElementById('TABLE_OF_CONTENTS');
+        const target = document.getElementById('TABLE_OF_CONTENTS');
 
         $(function () {
-            return $("h2, h3, h4, h5, h6").each(function (i, el) {
-                var $el, icon, id;
-                $el = $(el);
-                id = $el.attr('id');
-                icon = '<i class="fa fa-link"></i>';
+            var titles = $("h2, h3");
+            var prev_level = 99;
+            var prev_id = 'null';
 
-                if (id) {
+            for (let index = 0; index < titles.length; index++) {
+                const current_title_element = titles[index];
+                const current_level = Number(current_title_element.nodeName.substring(1, 2));
+                const id = 'title-' + String(index) + '-' + String(current_level);
+                
+                var _target = target;
 
-                    new_string =
-                        "<li style='padding-left: " +
-                        (Number(el.nodeName.substring(1, 2)) * 22 - 22) + "px;'>" +
-                        "<a href='#" + id + "'>" + el.innerHTML + "</a>" + "</li>"
-
-                    if (table_of_contents) {
-                        table_of_contents.innerHTML += new_string
-                    }
-
-                    console.log(new_string)
-
-                    return $el.prepend($("<a />").addClass("header-link").attr("href", "#" + id).html(icon));
+                if (prev_level < current_level) {
+                    _target = document.getElementById('nav-' + prev_id)
                 }
-            });
-        });
+                
+                _target.innerHTML += 
+                    '<a class="nav-link nav-link-side-h' + String(current_level)  + '"' + 
+                    'id=' + id + ' ' +
+                    'href="#' + current_title_element.id + '">' +
+                    current_title_element.innerHTML +
+                    '</a>'
+                ;
 
-        if (table_of_contents) {
-            table_of_contents.innerHTML += "<h2>Contents</h2>"
-        }
+                if (index + 1 < titles.length) {
+                    const next_title_element = titles[index + 1];
+                    const next_level = Number(next_title_element.nodeName.substring(1, 2));
+
+                    if (next_level > current_level) {
+                        prev_level = current_level;
+                        prev_id = id;
+                        _target.innerHTML += ('<nav class="nav nav-pills flex-column" id="nav-' + id + '""></nav>');
+                    }
+                }
+            }
+            $('body').scrollspy({ target: '#navbar-left-contents', offset: 50 })
+        });
 
     </script>
     {% endif %}

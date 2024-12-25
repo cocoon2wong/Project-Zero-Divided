@@ -11,9 +11,9 @@ let BeautifulJekyllJS = {
     // Shorten the navbar after scrolling a little bit down
     $(window).scroll(function() {
         if ($(".navbar").offset().top > 200) {
-            $(".navbar").addClass("top-nav-short");
+            $(".navbar-custom").addClass("top-nav-short");
         } else {
-            $(".navbar").removeClass("top-nav-short");
+            $(".navbar-custom").removeClass("top-nav-short");
         }
     });
 

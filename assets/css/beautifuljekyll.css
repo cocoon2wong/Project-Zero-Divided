@@ -41,7 +41,10 @@ h1 {
   font-size: 2.25rem;
 }
 h2 {
+  color: {{site.hover-col}};
   font-size: 1.875rem;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #eaeaea;
 }
 h3 {
   font-size: 1.5rem;
@@ -144,6 +147,8 @@ img {
 .navbar-custom.top-nav-short-permanent {
   padding-top: 0;
   padding-bottom: 0;
+  padding-left: 1em;
+  padding-right: 1em;
 }
 
 .navbar-custom .navbar-brand {

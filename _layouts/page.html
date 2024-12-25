@@ -5,7 +5,7 @@ layout: base
  * @Author: Conghao Wong
  * @Date: 2023-04-28 19:02:49
  * @LastEditors: Conghao Wong
- * @LastEditTime: 2024-12-04 09:35:41
+ * @LastEditTime: 2024-12-25 14:52:18
  * @Description: file content
  * @Github: https://cocoon2wong.github.io
  * Copyright 2023 Conghao Wong, All Rights Reserved.
@@ -17,12 +17,12 @@ layout: base
 	<div class="row">
 
 {% if page.add-md-links %}
-		<div class="col-xl-3 col-lg-4" style="
-			border-right-style: solid;
-			border-right-color: #e5e5e5; 
-			border-right-width: 0.5mm;
-		">
-			<div id="TABLE_OF_CONTENTS" style="position:sticky; top: 100px; "></div>
+		<div class="col-xl-3 col-lg-4">
+			<nav id="navbar-left-contents" class="navbar navbar-light bg-light flex-column align-items-stretch p-3" style="position:sticky; top: 100px; border-radius: 15px; ">
+				<!-- <a class="navbar-brand" href="#">Sections</a> -->
+				<nav id="TABLE_OF_CONTENTS" class="nav nav-pills flex-column">
+				</nav>
+			</nav>
 		</div>
 		<div class="{% if page.full-width %} col {% else %} col-xl-8 offset-xl-0 col-lg-10 offset-lg-1 {% endif %}">
 {% else %}
@@ -34,22 +34,22 @@ layout: base
 	{% assign gh_user =  gh_split[0]  %}
 	{% assign gh_repo =  gh_split[1]  %}
 
-		<div id="header-gh-btns">
-			{% if page.gh-badge.size > 0 %}
-			{% for badge in page.gh-badge %}
-				{% case badge %}
-				{% when 'star'%}
-					<iframe src="https://ghbtns.com/github-btn.html?user={{ gh_user }}&repo={{ gh_repo }}&type=star&count=true" frameborder="0" scrolling="0" width="80px" height="20px"></iframe>
-				{% when 'watch'%}
-					<iframe src="https://ghbtns.com/github-btn.html?user={{ gh_user }}&repo={{ gh_repo }}&type=watch&v=2&count=true" frameborder="0" scrolling="0" width="80px" height="20px"></iframe>
-				{% when 'fork'%}
-					<iframe src="https://ghbtns.com/github-btn.html?user={{ gh_user }}&repo={{ gh_repo }}&type=fork&count=true" frameborder="0" scrolling="0" width="80px" height="20px"></iframe>
-				{% when 'follow'%}
-					<iframe src="https://ghbtns.com/github-btn.html?user={{ gh_user }}&type=follow&count=true" frameborder="0" scrolling="0" width="220px" height="20px"></iframe>
-				{% endcase %}
-			{% endfor %}
-			{% endif %}
-		</div>
+			<div id="header-gh-btns">
+				{% if page.gh-badge.size > 0 %}
+				{% for badge in page.gh-badge %}
+					{% case badge %}
+					{% when 'star'%}
+						<iframe src="https://ghbtns.com/github-btn.html?user={{ gh_user }}&repo={{ gh_repo }}&type=star&count=true" frameborder="0" scrolling="0" width="80px" height="20px"></iframe>
+					{% when 'watch'%}
+						<iframe src="https://ghbtns.com/github-btn.html?user={{ gh_user }}&repo={{ gh_repo }}&type=watch&v=2&count=true" frameborder="0" scrolling="0" width="80px" height="20px"></iframe>
+					{% when 'fork'%}
+						<iframe src="https://ghbtns.com/github-btn.html?user={{ gh_user }}&repo={{ gh_repo }}&type=fork&count=true" frameborder="0" scrolling="0" width="80px" height="20px"></iframe>
+					{% when 'follow'%}
+						<iframe src="https://ghbtns.com/github-btn.html?user={{ gh_user }}&type=follow&count=true" frameborder="0" scrolling="0" width="220px" height="20px"></iframe>
+					{% endcase %}
+				{% endfor %}
+				{% endif %}
+			</div>
 {% endif %}
 
 {% if page.before-content %}
