@@ -1,0 +1,9 @@
+<div class="photo-wall">
+{% for image in site.static_files %}
+{% if image.path contains include.gallery_name and image.path contains 'gallery/' %}
+  <a class="photo-item" href="{{ image.path }}" data-toggle="lightbox" data-gallery="{{ include.gallery_name }}">
+    <img src="/gallery_thumbnails/{{ include.gallery_name }}/{{ image.name }}" class="img-fluid">
+  </a>
+{% endif %}
+{% endfor %}
+</div>

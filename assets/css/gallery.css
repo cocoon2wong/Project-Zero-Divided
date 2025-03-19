@@ -1,0 +1,27 @@
+/*
+ * @Author: Conghao Wong
+ * @Date: 2025-03-19 15:07:39
+ * @LastEditors: Conghao Wong
+ * @LastEditTime: 2025-03-19 17:38:51
+ * @Github: https://cocoon2wong.github.io
+ * Copyright 2025 Conghao Wong, All Rights Reserved.
+ */
+
+
+.photo-wall {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.photo-item {
+    flex: 1 1 calc(33% - 20px);
+    box-sizing: border-box;
+}
+
+.photo-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
