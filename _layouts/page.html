@@ -1,15 +1,6 @@
 ---
 layout: base
 ---
-<!--
- * @Author: Conghao Wong
- * @Date: 2023-04-28 19:02:49
- * @LastEditors: Conghao Wong
- * @LastEditTime: 2024-12-25 14:52:18
- * @Description: file content
- * @Github: https://cocoon2wong.github.io
- * Copyright 2023 Conghao Wong, All Rights Reserved.
--->
 
 {% include header.html type="page" %}
 
@@ -27,6 +18,10 @@ layout: base
 		<div class="{% if page.full-width %} col {% else %} col-xl-8 offset-xl-0 col-lg-10 offset-lg-1 {% endif %}">
 {% else %}
 		<div class="{% if page.full-width %} col {% else %} col-xl-8 offset-xl-2 col-lg-10 offset-lg-1 {% endif %}">
+{% endif %}
+
+{% if page.breadcrumbs %}
+	{% include breadcrumbs.html %}
 {% endif %}
 
 {% if page.gh-repo %}

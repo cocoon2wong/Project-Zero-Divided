@@ -1,0 +1,39 @@
+---
+layout: null
+---
+/*
+ * @Author: Conghao Wong
+ * @Date: 2025-03-21 15:05:13
+ * @LastEditors: Conghao Wong
+ * @LastEditTime: 2025-03-21 16:00:15
+ * @Github: https://cocoon2wong.github.io
+ * Copyright 2025 Conghao Wong, All Rights Reserved.
+ */
+
+.breadcrumb-box {
+    padding: 0;
+    background-color: #F7F7F9;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.breadcrumb {
+    margin: 0;
+    padding-left: 2px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.breadcrumb-item > a {
+    margin: 3px;
+    padding: 3px 6px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all .1s ease-in-out;
+    color: #6c757da0;
+}
+
+.breadcrumb-item > a:hover {
+    color: #FFFFFF;
+    background-color: {{ site.hover-col }};
+}
