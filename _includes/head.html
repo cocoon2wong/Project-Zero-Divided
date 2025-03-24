@@ -12,7 +12,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    {% capture title %}
+  {% capture pagetitle %}
     {%- if page.share-title -%}
     {{ page.share-title | strip_html | xml_escape }}
     {%- elsif page.title -%}
@@ -22,7 +22,15 @@
     {%- endif -%}
     {% endcapture %}
 
-    {% capture description %}
+  {% capture title %}
+    {%- if site.title and site.title-on-all-pages and (site.title != pagetitle) -%}
+      {{ pagetitle }} | {{ site.title }}
+    {%- else -%}
+      {{ pagetitle }}
+    {%- endif -%}
+  {% endcapture %}
+
+  {% capture description %}
     {%- if page.share-description -%}
     {{ page.share-description | strip_html | xml_escape }}
     {%- elsif page.subtitle -%}
@@ -53,10 +61,11 @@
     <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ '/feed.xml' | absolute_url }}">
     {% endif %}
 
-    {% include gtag.html %}
-    {% include gtm_head.html %}
-    {% include google_analytics.html %}
-    {% include cloudflare_analytics.html %}
+  {% include gtag.html %}
+  {% include gtm_head.html %}
+  {% include google_analytics.html %}
+  {% include cloudflare_analytics.html %}
+  {% include mathjax.html %}
 
     {% if layout.common-ext-css %}
     {% for css in layout.common-ext-css %}
@@ -153,30 +162,12 @@
     <link rel="stylesheet" href="{{ " /assets/css/staticman.css" | relative_url }}">
     {% endif %}
 
-    {% if page.add-md-links %}
-    <link href="/assets/css/markdown-links.css" rel="stylesheet">
-    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-    {% endif %}
+  {% assign favicon_exists = site.static_files | where: "path", "/favicon.ico" | size %}
+  {% if favicon_exists == 1 %}
+  <link rel="icon" href="{{ '/favicon.ico' | relative_url }}" />
+  {% endif %}
 
-    {% if page.add-equations %}
-    <script>
-        MathJax = {
-            tex: {
-                inlineMath: [['$', '$'], ['\\(', '\\)']],
-                displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-                tags: 'all',
-                macros: {
-                    bm: ["{\\boldsymbol #1}", 1],
-                },
-            }
-        };
-    </script>
-    <script id="MathJax-script" async
-        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
-    </script>
-    {% endif %}
-
-    {% if page.head-extra %}
+  {% if page.head-extra %}
     {% for file in page.head-extra %}
     {% include {{ file }} %}
     {% endfor %}
