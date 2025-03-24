@@ -10,7 +10,7 @@ breadcrumbs: true
     <div class="{% if page.full-width %} col {% else %} col-xl-8 offset-xl-2 col-lg-10 offset-lg-1 {% endif %}">
       {% if page.disable-breadcrumbs %}
       {% else %}
-        {% include breadcrumbs.html %}
+        {% include breadcrumbs.html hide_title=true %}
       {% endif %}
       
       {% if page.gh-repo %}
