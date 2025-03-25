@@ -17,26 +17,6 @@ let BeautifulJekyllJS = {
         }
     });
 
-    big_img = false;
-    if ($(".top-nav-regular").length){big_img = true;}
-
-    $(window).scroll(function() {
-      if (big_img){
-        if ($(".navbar").offset().top > 200) {
-          $(".navbar-nav").addClass("navbar-nav-transition");
-          $(".navbar-nav").removeClass("navbar-nav-float-enable");
-          $(".navbar-nav").addClass("navbar-nav-float-disable");
-          $(".navbar-custom").removeClass("navbar-float-enable");
-          $(".navbar-custom").addClass("navbar-float-disable");
-        } else {
-          $(".navbar-nav").removeClass("navbar-nav-float-disable");
-          $(".navbar-nav").addClass("navbar-nav-float-enable");
-          $(".navbar-custom").removeClass("navbar-float-disable");
-          $(".navbar-custom").addClass("navbar-float-enable");
-        }
-      }
-    });
-
     // On mobile, hide the avatar when expanding the navbar menu
     $('#main-navbar').on('show.bs.collapse', function () {
       $(".navbar").addClass("top-nav-expanded");
@@ -63,17 +43,6 @@ let BeautifulJekyllJS = {
       $(".navbar").removeClass("navbar-light").addClass("navbar-dark");
     } else {
       $(".navbar").removeClass("navbar-dark").addClass("navbar-light");
-    }
-    
-    // 带有缩放和导航栏动画
-    if ($(".top-nav-regular").length){
-      $(".navbar-nav").removeClass("navbar-nav-float-disable");
-      $(".navbar-nav").addClass("navbar-nav-float-enable");
-      $(".navbar-custom").removeClass("navbar-float-disable");
-      $(".navbar-custom").addClass("navbar-float-enable");
-    } else {
-      $(".navbar-nav").addClass("navbar-nav-float-disable");
-      $(".navbar-custom").addClass("navbar-float-disable");
     }
   },
 
