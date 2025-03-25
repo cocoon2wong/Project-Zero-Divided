@@ -92,3 +92,10 @@ layout: null
     background-color: {{site.button-active-color}};
     border-color: {{site.button-active-color}};
 }
+
+.main-page-container {
+    background-color: #FFFFFF;
+    box-shadow: -5px -5px 10px -4px #00000060;
+    padding-top: 15px;
+    padding-bottom: 3.125rem;
+}

@@ -414,7 +414,7 @@ img {
 footer {
   padding: 1.875rem 0;
   border-top: 1px var(--footer-col) solid;
-  margin-top: 3.125rem;
+  margin-top: 0rem;
   font-size: 0.875rem;
   background-color: var(--footer-col);
   {% if site.footer-img %}
@@ -684,7 +684,7 @@ footer .footer-custom-content {
   background-size: cover;
   -o-background-size: cover;
   margin-top: 3.1875rem; /* The small navbar is 50px tall + 1px border */
-  margin-bottom: 15px;
+  margin-bottom: 0px;
 }
 nav.top-nav-short-permanent ~ header > .intro-header {
   margin-top: 5rem;
