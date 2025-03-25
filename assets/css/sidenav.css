@@ -5,34 +5,68 @@ layout: null
  * @Author: Conghao Wong
  * @Date: 2024-12-25 12:25:05
  * @LastEditors: Conghao Wong
- * @LastEditTime: 2024-12-25 17:33:22
+ * @LastEditTime: 2025-03-24 18:36:53
  * @Github: https://cocoon2wong.github.io
  * Copyright 2024 Conghao Wong, All Rights Reserved.
  */
 
-
-.nav-link-side-h2 {
-    color: #000;
-    font-size: 1.125rem;
+.table-of-contents-container {
+    padding-top: 5px;
+    padding-bottom: 0;
+    border: 0px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    position: sticky;
+    top: 100px;
+    background-color: #F7F7F9;
 }
 
-.nav-link-side-h3 {
+.table-of-contents-item > a {
+    display: flex;
+    color: #616a72;
+    padding: 3px 6px;
+    border: 0;
+    border-radius: 6px;
+}
+
+.table-of-contents-title {
+    padding: 0 0 0 10px;
+    color: #6c757da0;
+}
+
+.table-of-contents-title:hover {
     color: #000;
+}
+
+.table-of-contents-h2 {
+    font-size: 1.125rem;
+    margin: 5px;
+}
+
+.table-of-contents-h3 {
     font-size: 1rem;
     margin-left: 1rem !important;
+    margin-right: 5px;
+    margin-bottom: 2px;
 }
 
-.flex-column>.nav-link {
-    border: 0;
-    border-radius: 8px;
+.table-of-contents-h4 {
+    font-size: 1rem;
+    margin-left: 2rem !important;
+    margin-right: 5px;
+    margin-bottom: 2px;
 }
 
-.flex-column>.nav-link-side-h2.nav-link.active  {
+.table-of-contents-h2.nav-link.active,
+.table-of-contents-h2:hover {
     color: {{site.button-hover-text-color}};
     background-color: {{site.button-hover-color}};
 }
 
-.flex-column>.nav-link-side-h3.nav-link.active  {
+.table-of-contents-h3.nav-link.active,
+.table-of-contents-h3:hover,
+.table-of-contents-h4.nav-link.active,
+.table-of-contents-h4:hover {
     color: {{site.button-hover-color}};
     background-color: #eaeaea;
 }

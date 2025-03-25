@@ -1,0 +1,94 @@
+<script>
+    const target = document.getElementById('TABLE_OF_CONTENTS');
+
+    $(function () {
+        var titles = $("h2, h3, h4");
+        var prev_level = 0;
+        var prev_id = 'TABLE_OF_CONTENTS';
+
+        // Visit all titles
+        const title_list = {
+            id: prev_id,
+            title: target,
+            level: prev_level,
+            next: [],
+            prev: null,
+        };
+        var _current_node = title_list;
+
+        for (let index = 0; index < titles.length; index++) {
+            const current_title_element = titles[index];
+            const current_level = Number(current_title_element.nodeName.substring(1, 2));
+            const id = 'title-' + String(index) + '-' + String(current_level);
+
+            var _new_node = {
+                id: id,
+                title: current_title_element,
+                level: current_level,
+                next: [],
+                prev: null,
+            };
+
+            // Reset current node
+            while (_current_node['level'] >= current_level) {
+                _current_node = _current_node['prev'];
+            }
+
+            _new_node['prev'] = _current_node;
+            _current_node['next'].push(_new_node);
+            _current_node = _new_node;
+        }
+
+        // Create title tree
+        var nodes = title_list['next'].reverse();
+
+        while (true) {
+            var node = nodes.pop();
+            var level = node['level']
+            var id = node['id']
+
+            // Has subtitles
+            var next_nodes = node['next'].reverse();
+            if (next_nodes.length) {
+                next_nodes.forEach(new_node => {
+                    nodes.push(new_node);
+                });
+            }
+
+            if (!nodes.length) {
+                break;
+            }
+
+            var _target_id = node['prev']['id'];
+            if (node['prev']['next'].length && _target_id != 'TABLE_OF_CONTENTS') {
+                _target_id = 'toc-item-' + _target_id;
+            }
+
+            var _target = document.getElementById(_target_id);
+
+            // Create container
+            _target.innerHTML +=
+                '<nav class="nav nav-pills flex-column table-of-contents-item" id="toc-' + id + '" ></nav>';
+            _target = document.getElementById('toc-' + id);
+
+            // Add current node
+            _target.innerHTML +=
+                '<a class="nav-link table-of-contents-h' + String(node['level']) + '"' +
+                'id=' + id + ' ' +
+                'href="#' + node['title'].id +
+                '">' +
+                node['title'].innerHTML +
+                '</a>';
+
+            // Create empty nav container
+            if (next_nodes.length) {
+                _target.innerHTML +=
+                    '<nav class="nav nav-pills flex-column table-of-contents-item" id="toc-item-' + id + '" ></nav>';
+
+            }
+        }
+
+        $('body').scrollspy({ target: '.table-of-contents-container', offset: 0 })
+    });
+
+</script>

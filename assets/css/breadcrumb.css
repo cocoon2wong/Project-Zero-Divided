@@ -10,11 +10,12 @@ layout: null
  * Copyright 2025 Conghao Wong, All Rights Reserved.
  */
 
-.breadcrumb-box {
+.breadcrumb-container {
     padding: 0;
-    background-color: #F7F7F9;
+    border: 0;
     border-radius: 10px;
     margin-bottom: 20px;
+    background-color: #F7F7F9;
 }
 
 .breadcrumb {

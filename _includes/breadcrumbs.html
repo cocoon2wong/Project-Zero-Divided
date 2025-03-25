@@ -1,4 +1,4 @@
-<nav class="breadcrumb-box" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+<nav class="breadcrumb-container" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
 {% assign crumbs = page.url | remove:'/index.html' | split: '/' %}
     <ol class="breadcrumb">
         <li class="breadcrumb-item">
@@ -16,7 +16,7 @@
 {% if include.hide_title %}
         <li class="breadcrumb-item active" aria-current="page">This page</li>
 {% else %}
-        <li class="breadcrumb-item active" aria-current="page">{{ page.title }}{% if page.subtitle %} ({{ page.subtitle}}){% endif %}</li>
+        <li class="breadcrumb-item active" aria-current="page">{{ page.title }}</li>
 {% endif %}
 {% else %}
         <li class="breadcrumb-item"><a href="{% assign crumb_limit = forloop.index | plus: 1 %}{% for crumb in crumbs limit: crumb_limit %}{{ crumb | append: '/' | replace:'without-plugin/','without-plugins/' }}{% endfor %}">{{ crumb | replace:'-',' ' | remove:'.html' | capitalize }}</a>
