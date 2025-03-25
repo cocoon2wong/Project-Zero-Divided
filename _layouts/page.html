@@ -4,7 +4,7 @@ layout: base
 
 {% include header.html type="page" %}
 
-<div class="main-page-container col">
+<div class="main-page-container {% if page.cover-img %}main-page-container-shadow{% endif %} col">
 	<div class="{% if page.full-width %} container-fluid {% else %} container-md {% endif %}" role="main">
 		<div class="row">
 
