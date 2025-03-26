@@ -7,15 +7,16 @@ let BeautifulJekyllJS = {
 
   init : function() {
     setTimeout(BeautifulJekyllJS.initNavbar, 10);
+    // $(".navbar-custom").addClass("top-nav-short");
 
     // Shorten the navbar after scrolling a little bit down
-    $(window).scroll(function() {
-        if ($(".navbar").offset().top > 200) {
-            $(".navbar-custom").addClass("top-nav-short");
-        } else {
-            $(".navbar-custom").removeClass("top-nav-short");
-        }
-    });
+    // $(window).scroll(function() {
+    //     if ($(".navbar").offset().top > 200) {
+    //         $(".navbar-custom").addClass("top-nav-short");
+    //     } else {
+    //         $(".navbar-custom").removeClass("top-nav-short");
+    //     }
+    // });
 
     // On mobile, hide the avatar when expanding the navbar menu
     $('#main-navbar').on('show.bs.collapse', function () {
