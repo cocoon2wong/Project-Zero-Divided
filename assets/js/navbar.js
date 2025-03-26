@@ -2,7 +2,7 @@
  * @Author: Conghao Wong
  * @Date: 2025-03-25 19:41:54
  * @LastEditors: Conghao Wong
- * @LastEditTime: 2025-03-26 11:58:29
+ * @LastEditTime: 2025-03-26 15:09:15
  * @Github: https://cocoon2wong.github.io
  * Copyright 2025 Conghao Wong, All Rights Reserved.
  */
@@ -65,9 +65,11 @@ function get_nav_ani_rate() {
 }
 
 
-function set_nav_bar_css(rate) {
+function set_nav_bar_css(rate, ignore_fonts=false) {
     // For titles
-    $('.page-heading > h1').css({ 'opacity': String(1 - rate) });
+    if (!ignore_fonts) {
+        $('.page-heading > h1').css({ 'opacity': String(1 - rate) });
+    }
 
     // `navbar-custom` is the normal navigation bar
     $('.navbar-custom-init').css({
@@ -75,11 +77,11 @@ function set_nav_bar_css(rate) {
         'padding-top': String(linear(rate, 20, 0)) + 'px',
         'padding-bottom': String(linear(rate, max_scroll() - 20, 0)) + 'px',
         'background-color': linear_color(
-            rate,
+            rate**2,
             NAV_BAR_COLOR.substring(0, NAV_BAR_COLOR.length - 2) + '00',
             NAV_BAR_COLOR
         ),
-        'backdrop-filter': 'blur(' + String(linear(rate, 0, 10)) + 'px)',
+        'backdrop-filter': 'blur(' + String(linear(rate**2, 0, 10)) + 'px)',
     });
 
     // `navbar-nav` is the small float navigation bar
@@ -122,7 +124,7 @@ $(function () {
     NAV_FLOAT_COLOR = rgba_to_hex($('.navbar-nav').css('background-color'));
 
     if ($(window).width() <= 1199) {
-        set_nav_bar_css(1.0);
+        set_nav_bar_css(1.0, ignore_fonts=true);
     } else {
         set_nav_bar_css(get_nav_ani_rate());
     }
