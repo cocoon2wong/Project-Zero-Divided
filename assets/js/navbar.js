@@ -2,15 +2,15 @@
  * @Author: Conghao Wong
  * @Date: 2025-03-25 19:41:54
  * @LastEditors: Conghao Wong
- * @LastEditTime: 2025-03-26 15:09:15
+ * @LastEditTime: 2025-03-27 18:23:38
  * @Github: https://cocoon2wong.github.io
  * Copyright 2025 Conghao Wong, All Rights Reserved.
  */
 
 
 var MIN_SCROLL = 0;
-var NAV_BAR_COLOR = '#000000FF';
-var NAV_FLOAT_COLOR = '#000000FF';
+var NAV_BAR_COLOR = $(':root').css('--navbar-col');
+var NAV_FLOAT_COLOR = $(':root').css('--navbar-float-col');
 
 var bias = 0;
 var last_position = 0;
@@ -47,7 +47,7 @@ function linear_color(rate, start, end) {
 
 function rgba_to_hex(rgba) {
     let _rgba = rgba.match(/(\d(\.\d+)?)+/g);
-    console.log(_rgba);
+
     return (
         '#' +
         parseInt(_rgba[0]).toString(16).padStart(2, '0') +
@@ -65,29 +65,40 @@ function get_nav_ani_rate() {
 }
 
 
-function set_nav_bar_css(rate, ignore_fonts=false) {
+function set_nav_bar_css(rate, ignore_fonts = false) {
     // For titles
     if (!ignore_fonts) {
         $('.page-heading > h1').css({ 'opacity': String(1 - rate) });
     }
 
     // `navbar-custom` is the normal navigation bar
-    $('.navbar-custom-init').css({
-        'transition': 'none',
+    $('.top-navbar-container').css({
+        'background-color': '#FFFFFF00',
         'padding-top': String(linear(rate, 20, 0)) + 'px',
         'padding-bottom': String(linear(rate, max_scroll() - 20, 0)) + 'px',
+    });
+
+    $('.top-navbar-background-container').css({
+        'backdrop-filter': 'blur(' + String(linear(rate ** 4, 0, 10)) + 'px)',
         'background-color': linear_color(
-            rate**2,
+            rate ** 2,
             NAV_BAR_COLOR.substring(0, NAV_BAR_COLOR.length - 2) + '00',
             NAV_BAR_COLOR
         ),
-        'backdrop-filter': 'blur(' + String(linear(rate**2, 0, 10)) + 'px)',
     });
 
+    $('.big-img').css({
+        'opacity': linear(rate ** 3, 1.0, 0.0),
+    })
+
+    $('.main-page-container-shadow').css({
+        'box-shadow': '-5px -5px 10px -4px ' + linear_color(rate, '#00000060', '#00000000'),
+    })
+
     // `navbar-nav` is the small float navigation bar
-    $('.navbar-float-init').css({
+    $('.top-nav-container').css({
         'background-color': linear_color(
-            rate, NAV_FLOAT_COLOR,
+            rate ** 2, NAV_FLOAT_COLOR,
             NAV_BAR_COLOR.substring(0, NAV_BAR_COLOR.length - 2) + '00'
         ),
         'border-radius': String(linear(rate, 15, 0)) + 'px',
@@ -99,6 +110,7 @@ function set_nav_bar_css(rate, ignore_fonts=false) {
         'padding-left': String(linear(rate, 10, 0)) + 'px',
         'padding-right': String(linear(rate, 20, 0)) + 'px',
         'border-radius': String(linear(rate, 15, 8)) + 'px',
+        'backdrop-filter': 'blur(' + String(linear(rate ** 2, 10, 0)) + 'px)',
     })
 }
 
@@ -116,19 +128,12 @@ $(function () {
     var shorten = $('.top-nav-regular').length ? true : false;
 
     // Set init states
-    $('.navbar-custom').addClass('navbar-custom-init');
-    $('.navbar-nav').addClass('navbar-float-init');
-
-    // Get colors
-    NAV_BAR_COLOR = rgba_to_hex($('.navbar-custom').css('background-color'));
-    NAV_FLOAT_COLOR = rgba_to_hex($('.navbar-nav').css('background-color'));
-
     if ($(window).width() <= 1199) {
-        set_nav_bar_css(1.0, ignore_fonts=true);
+        set_nav_bar_css(1.0, ignore_fonts = true);
     } else {
         set_nav_bar_css(get_nav_ani_rate());
     }
-    
+
     $(window).scroll(function () {
         var timer;
 
