@@ -2,7 +2,7 @@
  * @Author: Conghao Wong
  * @Date: 2025-03-25 19:41:54
  * @LastEditors: Conghao Wong
- * @LastEditTime: 2025-03-28 15:24:03
+ * @LastEditTime: 2025-03-28 15:53:42
  * @Github: https://cocoon2wong.github.io
  * Copyright 2025 Conghao Wong, All Rights Reserved.
  */
@@ -74,7 +74,7 @@ function set_nav_bar_css(rate, no_animation = false) {
     $('.top-nav-container').css({
         'background-color': '#FFFFFF00',
         'padding-top': String(linear(rate, 10, 0)) + 'px',
-        'padding-bottom': String(linear(rate, max_scroll() - 20, 0)) + 'px',
+        'padding-bottom': String(linear(rate, max_scroll() - 5, 0)) + 'px',
     });
 
     $('.top-nav-background-container').css({
@@ -110,8 +110,8 @@ function set_nav_bar_css(rate, no_animation = false) {
             String(linear(rate ** 0.5, 20, 0)) + 'px ' +
             'rgba(0, 0, 0, ' + String(linear(rate ** 0.5, 0.336, 0)) + ')'
         ),
-        'padding-left': String(linear(rate, 4, 0)) + 'px',
-        'padding-right': String(linear(rate, 20, 0)) + 'px',
+        'padding-left': String(linear(rate, 4, 20)) + 'px',
+        'padding-right': String(linear(rate, 20, 10)) + 'px',
         'backdrop-filter': (
             'saturate(' + String(linear(rate ** 4, 180, 100)) + '%) ' +
             'blur(' + String(linear(rate ** 2, 20, 0)) + 'px)'
@@ -128,7 +128,7 @@ function set_nav_bar_css(rate, no_animation = false) {
         'border-radius': String(linear(rate ** 0.8, 17, 1)) + 'px',
         'height': String(linear(rate ** 0.5, 34, 20)) + 'px',
         'margin-top': String(linear(rate ** 0.5, -37, -20)) + 'px',
-        'background-color': linear_color(rate ** 0.3, '#FFFFFFA0', '#FFFFFF00'),
+        'background-color': linear_color(rate ** 0.05, '#FFFFFFA0', '#FFFFFF00'),
         'border-bottom': (
             '1px solid ' +
             linear_color(
