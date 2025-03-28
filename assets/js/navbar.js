@@ -2,7 +2,7 @@
  * @Author: Conghao Wong
  * @Date: 2025-03-25 19:41:54
  * @LastEditors: Conghao Wong
- * @LastEditTime: 2025-03-28 15:03:59
+ * @LastEditTime: 2025-03-28 15:24:03
  * @Github: https://cocoon2wong.github.io
  * Copyright 2025 Conghao Wong, All Rights Reserved.
  */
@@ -71,13 +71,13 @@ function get_nav_ani_rate() {
 
 function set_nav_bar_css(rate, no_animation = false) {
     // `navbar-custom` is the normal navigation bar
-    $('.top-navbar-container').css({
+    $('.top-nav-container').css({
         'background-color': '#FFFFFF00',
         'padding-top': String(linear(rate, 10, 0)) + 'px',
         'padding-bottom': String(linear(rate, max_scroll() - 20, 0)) + 'px',
     });
 
-    $('.top-navbar-background-container').css({
+    $('.top-nav-background-container').css({
         'box-sizeing': 'border-box',
         'backdrop-filter': (
             'saturate(' + String(linear(rate ** 4, 100, 180)) + '%) ' +
@@ -96,7 +96,7 @@ function set_nav_bar_css(rate, no_animation = false) {
     });
 
     // `navbar-nav` is the small float navigation bar
-    $('.top-nav-container').css({
+    $('.top-nav-float-container').css({
         'background-color': linear_color(
             rate ** 2, NAV_FLOAT_COLOR,
             NAV_BAR_COLOR.substring(0, NAV_BAR_COLOR.length - 2) + '00'
@@ -128,7 +128,7 @@ function set_nav_bar_css(rate, no_animation = false) {
         'border-radius': String(linear(rate ** 0.8, 17, 1)) + 'px',
         'height': String(linear(rate ** 0.5, 34, 20)) + 'px',
         'margin-top': String(linear(rate ** 0.5, -37, -20)) + 'px',
-        'background-color': linear_color(rate ** 0.1, '#FFFFFFA0', '#FFFFFF00'),
+        'background-color': linear_color(rate ** 0.3, '#FFFFFFA0', '#FFFFFF00'),
         'border-bottom': (
             '1px solid ' +
             linear_color(
@@ -154,7 +154,7 @@ function set_nav_bar_css(rate, no_animation = false) {
         })
     }
     else {
-        $('.top-nav-container').css({
+        $('.top-nav-float-container').css({
             'border': '1px solid #00000000',
         });
 
