@@ -2,7 +2,7 @@
  * @Author: Conghao Wong
  * @Date: 2025-03-25 19:41:54
  * @LastEditors: Conghao Wong
- * @LastEditTime: 2025-03-28 14:57:08
+ * @LastEditTime: 2025-03-28 15:03:59
  * @Github: https://cocoon2wong.github.io
  * Copyright 2025 Conghao Wong, All Rights Reserved.
  */
@@ -181,7 +181,7 @@ $(function () {
     $('.navbar-nav').find('li').each(function () {
         let a = $(this).find('a:first')[0];
 
-        if (location.pathname.includes($(a).attr('href'))) {
+        if (location.pathname.startsWith($(a).attr('href'))) {
             $(this).addClass('top-nav-active');
             $(this).append('<nav class="top-nav-active-background-container"></nav>');
         }
