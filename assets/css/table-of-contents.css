@@ -5,10 +5,28 @@ layout: null
  * @Author: Conghao Wong
  * @Date: 2024-12-25 12:25:05
  * @LastEditors: Conghao Wong
- * @LastEditTime: 2025-03-24 18:36:53
+ * @LastEditTime: 2025-03-31 19:47:33
  * @Github: https://cocoon2wong.github.io
  * Copyright 2024 Conghao Wong, All Rights Reserved.
  */
+
+:root {
+    --table-of-contents-background-col: {{ site.other-nav-col | default: "#F7F7F9"}};
+    --table-of-contents-background-col-dark: {{ site.other-nav-col-dark | default: "#3D3D3D"}};
+
+    --table-of-contents-title-col: #6c757da0;
+    --table-of-contents-title-hover-col: #000;
+    --table-of-contents-title-col-dark: #ffffff;
+    --table-of-contents-title-hover-col-dark: #fff;
+
+    --table-of-contents-inactive-col: #616a72;
+    --table-of-contents-inactive-col-dark: #9A9A9A;
+
+    --table-of-contents-background-hover-col: #eaeaea;
+
+    --table-of-contents-theme-col: {{site.button-hover-text-color}};
+    --table-of-contents-theme-background-col: {{site.button-hover-color}};
+}
 
 .table-of-contents-container {
     padding-top: 5px;
@@ -18,24 +36,41 @@ layout: null
     margin-bottom: 20px;
     position: sticky;
     top: 100px;
-    background-color: #F7F7F9;
+    background-color: var(--table-of-contents-background-col);
+}
+
+.table-of-contents-container.dark-mode {
+    background-color: var(--table-of-contents-background-col-dark);
 }
 
 .table-of-contents-item > a {
     display: flex;
-    color: #616a72;
     padding: 3px 6px;
     border: 0;
     border-radius: 6px;
+    color: var(--table-of-contents-inactive-col);
+}
+
+.table-of-contents-item.dark-mode > a,
+.table-of-contents-item.dark-mode > * > a {
+    color: var(--table-of-contents-inactive-col-dark);
 }
 
 .table-of-contents-title {
     padding: 0 0 0 10px;
-    color: #6c757da0;
+    color: var(--table-of-contents-title-col);
+}
+
+.table-of-contents-title.dark-mode {
+    color: var(--table-of-contents-title-col-dark);
 }
 
 .table-of-contents-title:hover {
-    color: #000;
+    color: var(--table-of-contents-title-hover-col);
+}
+
+.table-of-contents-title.dark-mode:hover {
+    color: var(--table-of-contents-title-hover-col-dark);
 }
 
 .table-of-contents-h2 {
@@ -59,14 +94,14 @@ layout: null
 
 .table-of-contents-h2.nav-link.active,
 .table-of-contents-h2:hover {
-    color: {{site.button-hover-text-color}};
-    background-color: {{site.button-hover-color}};
+    color: var(--table-of-contents-theme-col);
+    background-color: var(--table-of-contents-theme-background-col);
 }
 
 .table-of-contents-h3.nav-link.active,
 .table-of-contents-h3:hover,
 .table-of-contents-h4.nav-link.active,
 .table-of-contents-h4:hover {
-    color: {{site.button-hover-color}};
-    background-color: #eaeaea;
+    color: var(--table-of-contents-theme-background-col);
+    background-color: var(--table-of-contents-background-hover-col);
 }

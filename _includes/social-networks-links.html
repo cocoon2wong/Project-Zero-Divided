@@ -1,5 +1,8 @@
-{% if site.social-network-links %}
 <ul class="list-inline text-center footer-links">
+  <li class="list-inline-item">
+    <a onclick="dark_mode_toggle()" class="btn btn-colorful">☼ / ☽</a>
+  </li>
+{% if site.social-network-links %}
 
 {%- for network in site.social-network-links -%}
 
@@ -409,5 +412,5 @@
 
 {%- endfor -%}
 
-</ul>
 {% endif %}
+</ul>

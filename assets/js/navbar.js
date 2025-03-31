@@ -2,11 +2,12 @@
  * @Author: Conghao Wong
  * @Date: 2025-03-25 19:41:54
  * @LastEditors: Conghao Wong
- * @LastEditTime: 2025-03-28 15:53:42
+ * @LastEditTime: 2025-03-31 19:53:00
  * @Github: https://cocoon2wong.github.io
  * Copyright 2025 Conghao Wong, All Rights Reserved.
  */
 
+var shorten = false;
 
 var MIN_SCROLL = 0;
 var NAV_BAR_COLOR = $(':root').css('--navbar-col');
@@ -66,6 +67,19 @@ function get_nav_ani_rate() {
     bias = $('.navbar').offset().top;
     var rate = (bias - MIN_SCROLL) / (max_scroll() - MIN_SCROLL);
     return rate > 1.0 ? 1.0 : rate;
+}
+
+
+function update_nav_color(if_dark) {
+    if (if_dark) {
+        NAV_BAR_COLOR = $(':root').css('--navbar-col-dark');
+        NAV_FLOAT_COLOR = $(':root').css('--navbar-col-dark');
+    } else {
+        NAV_BAR_COLOR = $(':root').css('--navbar-col');
+        NAV_FLOAT_COLOR = $(':root').css('--navbar-float-col');
+    }
+
+    init_animation();
 }
 
 
@@ -173,9 +187,18 @@ function head_animation() {
 }
 
 
+function init_animation() {
+    if ($(window).width() > 1199 && shorten) {
+        set_nav_bar_css(get_nav_ani_rate());
+    } else {
+        set_nav_bar_css(1.0, no_animation = true);
+    }
+}
+
+
 $(function () {
     // Shorten the navbar after scrolling a little bit down
-    var shorten = $('.top-nav-regular').length ? true : false;
+    shorten = $('.top-nav-regular').length ? true : false;
 
     // Set init states
     $('.navbar-nav').find('li').each(function () {
@@ -187,11 +210,7 @@ $(function () {
         }
     })
 
-    if ($(window).width() > 1199 && shorten) {
-        set_nav_bar_css(get_nav_ani_rate());
-    } else {
-        set_nav_bar_css(1.0, no_animation = true);
-    }
+    init_animation();
 
     $(window).scroll(function () {
         if (!shorten || $(window).width() <= 1199) {

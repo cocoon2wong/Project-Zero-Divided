@@ -1,0 +1,28 @@
+/*
+ * @Author: Conghao Wong
+ * @Date: 2025-03-31 15:42:00
+ * @LastEditors: Conghao Wong
+ * @LastEditTime: 2025-03-31 19:08:46
+ * @Github: https://cocoon2wong.github.io
+ * Copyright 2025 Conghao Wong, All Rights Reserved.
+ */
+
+:root {
+    --dark-mode-font-col: #ffffff;
+    --dark-mode-footer-background-col: #404040;
+}
+
+body.dark-mode,
+p.dark-mode,
+h3.dark-mode,
+footer.dark-mode a,
+footer.dark-mode p, 
+.dark-mode.navbar-custom .navbar-brand,
+.dark-mode.navbar-custom .navbar-nav .nav-link {
+    color: var(--dark-mode-font-col);
+}
+
+footer.dark-mode {
+    border-color: var(--dark-mode-footer-background-col);
+    background-color: var(--dark-mode-footer-background-col);
+}

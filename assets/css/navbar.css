@@ -2,13 +2,24 @@
  * @Author: Conghao Wong
  * @Date: 2025-03-25 20:15:43
  * @LastEditors: Conghao Wong
- * @LastEditTime: 2025-03-28 15:39:57
+ * @LastEditTime: 2025-03-31 19:39:45
  * @Github: https://cocoon2wong.github.io
  * Copyright 2025 Conghao Wong, All Rights Reserved.
  */
 
 :root {
+    --main-page-col: #FFFFFF;
+    --main-page-col-dark: #1e1e1c;
+    --main-page-shadow-col: #00000060;
+
+
     --navbar-float-border-col: #b1b1b150;
+    --navbar-float-active-background-col: #FFFFFFa0;
+
+    --navbar-col-dark: #14141460;
+    
+    --header-background-col: #FFF;
+    --header-background-col-dark: #000;
 }
 
 .top-nav-background-container {
@@ -31,21 +42,29 @@
     color: var(--hover-col) !important;
 }
 
+.header-section.dark-mode {
+    background-color: var(--header-background-col-dark);
+}
+
 .main-page-container {
-    background-color: #FFFFFF;
     padding-top: 15px;
     padding-bottom: 3.125rem;
+    background-color: var(--main-page-col);
+}
+
+.main-page-container.dark-mode {
+    background-color: var(--main-page-col-dark);
 }
 
 .main-page-container-shadow {
-    box-shadow: -5px -5px 10px -4px #00000060;
+    box-shadow: -5px -5px 10px -4px var(--main-page-shadow-col);
 }
 
 .nav-item-active {
     content: '';
     display: block;
     height: 34px;
-    background-color: #FFFFFFa0;
+    background-color: var(--navbar-float-active-background-col);
     border-radius: 17px;
     margin-top: -37px;
     z-index: -1;
