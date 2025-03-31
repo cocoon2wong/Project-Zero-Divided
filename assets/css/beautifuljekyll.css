@@ -889,8 +889,11 @@ pre code {
 pre {
   font-size: 0.875rem;
   line-height: 1.5em;
-  border-radius: 0.25rem;
+  border-radius: 0;
   padding: 0.59375rem;
+}
+.highlighter-rouge {
+  border-left: 4.5px solid #444;
 }
 .highlight pre {
   border: none;
@@ -903,7 +906,7 @@ pre {
   background-size: auto 3em;
   background-position-y: 0.625rem;
   border: 1px solid rgba(0,0,0,0.1);
-  border-left: 0.4375rem solid #444;
+  border-left: none;
 }
 .highlight > pre:not([class~="highlight"]) { /* code block with line number */
   padding: 0;
