@@ -6,7 +6,7 @@ layout: null
  * @Author: Conghao Wong
  * @Date: 2023-03-03 16:11:49
  * @LastEditors: Conghao Wong
- * @LastEditTime: 2025-03-31 19:52:14
+ * @LastEditTime: 2025-04-01 16:09:52
  * @Description: file content
  * @Github: https://cocoon2wong.github.io
  * Copyright 2023 Conghao Wong, All Rights Reserved.
@@ -24,6 +24,18 @@ layout: null
 .dark-mode .btn-colorful {
     color: #fff;
     background-color: #3d3d3d;
+}
+
+.fa-circle {
+    transition: color 0.15s ease-in-out;
+}
+
+.dark-mode .fa-circle {
+    color: #3d3d3d;
+}
+
+.dark-mode .beautiful-jekyll-footer .list-inline-item a:hover .fa-circle {
+    color: {{site.button-hover-color}};
 }
 
 .btn-colorful:hover {
