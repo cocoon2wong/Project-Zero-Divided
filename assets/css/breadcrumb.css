@@ -30,7 +30,7 @@ layout: null
     background-color: var(--breadcrumb-background-color);
 }
 
-.breadcrumb-container.dark-mode {
+.dark-mode .breadcrumb-container {
     background-color: var(--breadcrumb-background-color-dark);
 }
 
@@ -50,7 +50,7 @@ layout: null
     color: var(--breadcrumb-color);
 }
 
-.breadcrumb-item.dark-mode > a {
+.dark-mode .breadcrumb-item > a {
     color: var(--breadcrumb-color-dark);
 }
 
@@ -58,7 +58,7 @@ layout: null
     color: var(--breadcrumb-active-color);
 }
 
-.breadcrumb-item.dark-mode.active {
+.dark-mode .breadcrumb-item.active {
     color: var(--breadcrumb-active-color-dark);
 }
 

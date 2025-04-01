@@ -2,7 +2,7 @@
  * @Author: Conghao Wong
  * @Date: 2025-03-31 15:42:00
  * @LastEditors: Conghao Wong
- * @LastEditTime: 2025-03-31 20:54:28
+ * @LastEditTime: 2025-04-01 15:29:42
  * @Github: https://cocoon2wong.github.io
  * Copyright 2025 Conghao Wong, All Rights Reserved.
  */
@@ -13,20 +13,28 @@
 }
 
 body.dark-mode,
-p.dark-mode,
-h3.dark-mode,
-footer.dark-mode a,
-footer.dark-mode p, 
-.dark-mode.navbar-custom .navbar-brand,
-.dark-mode.navbar-custom .navbar-nav .nav-link {
+.dark-mode p,
+.dark-mode h1,
+.dark-mode h3,
+.dark-mode h4,
+.dark-mode h5,
+.dark-mode footer a,
+.dark-mode footer p, 
+.dark-mode li,
+.dark-mode .navbar-custom .navbar-brand,
+.dark-mode .navbar-custom .navbar-nav .nav-link {
     color: var(--dark-mode-font-col);
 }
 
-footer.dark-mode {
+.dark-mode table tr {
+    background-color: var(--dark-mode-footer-background-col);
+}
+
+.dark-mode footer {
     border-color: var(--dark-mode-footer-background-col);
     background-color: var(--dark-mode-footer-background-col);
 }
 
-.highlight.dark-mode pre {
-    background-color: #eaeaeaa0;
+.dark-mode .highlight pre {
+    background-color: #646464;
 }

@@ -2,7 +2,7 @@
  * @Author: Conghao Wong
  * @Date: 2025-03-31 15:42:19
  * @LastEditors: Conghao Wong
- * @LastEditTime: 2025-03-31 19:52:39
+ * @LastEditTime: 2025-04-01 15:21:08
  * @Github: https://cocoon2wong.github.io
  * Copyright 2025 Conghao Wong, All Rights Reserved.
  */
@@ -47,9 +47,9 @@ function apply_dark_mode(dark_status = null) {
     update_nav_color(dark_status);
 
     if (dark_status == 1) {
-        $('body').find('*').addClass('dark-mode');
+        $('body').addClass('dark-mode');
     } else {
-        $('body').find('*').removeClass('dark-mode');
+        $('body').removeClass('dark-mode');
     }
 
     setCookie('dark_status', String(dark_status));

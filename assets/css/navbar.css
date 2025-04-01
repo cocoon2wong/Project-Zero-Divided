@@ -42,7 +42,7 @@
     color: var(--hover-col) !important;
 }
 
-.header-section.dark-mode {
+.dark-mode .header-section {
     background-color: var(--header-background-col-dark);
 }
 
@@ -52,7 +52,7 @@
     background-color: var(--main-page-col);
 }
 
-.main-page-container.dark-mode {
+.dark-mode .main-page-container {
     background-color: var(--main-page-col-dark);
 }
 

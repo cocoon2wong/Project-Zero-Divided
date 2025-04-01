@@ -39,7 +39,7 @@ layout: null
     background-color: var(--table-of-contents-background-col);
 }
 
-.table-of-contents-container.dark-mode {
+.dark-mode .table-of-contents-container {
     background-color: var(--table-of-contents-background-col-dark);
 }
 
@@ -51,8 +51,7 @@ layout: null
     color: var(--table-of-contents-inactive-col);
 }
 
-.table-of-contents-item.dark-mode > a,
-.table-of-contents-item.dark-mode > * > a {
+.dark-mode .table-of-contents-item a {
     color: var(--table-of-contents-inactive-col-dark);
 }
 
@@ -61,7 +60,7 @@ layout: null
     color: var(--table-of-contents-title-col);
 }
 
-.table-of-contents-title.dark-mode {
+.dark-mode .table-of-contents-title {
     color: var(--table-of-contents-title-col-dark);
 }
 
@@ -69,7 +68,7 @@ layout: null
     color: var(--table-of-contents-title-hover-col);
 }
 
-.table-of-contents-title.dark-mode:hover {
+.dark-mode .table-of-contents-title:hover {
     color: var(--table-of-contents-title-hover-col-dark);
 }
 

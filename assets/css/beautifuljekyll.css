@@ -889,11 +889,12 @@ pre code {
 pre {
   font-size: 0.875rem;
   line-height: 1.5em;
-  border-radius: 0;
+  border-radius: 0 7px 7px 0;
   padding: 0.59375rem;
 }
 .highlighter-rouge {
-  border-left: 4.5px solid #444;
+  border-radius: 7px 0 0 7px;
+  border-left: 7px solid #444;
 }
 .highlight pre {
   border: none;
