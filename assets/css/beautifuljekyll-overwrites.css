@@ -1,0 +1,55 @@
+/*
+ * @Author: Conghao Wong
+ * @Date: 2025-04-09 10:06:30
+ * @LastEditors: Conghao Wong
+ * @LastEditTime: 2025-04-09 14:47:28
+ * @Github: https://cocoon2wong.github.io
+ * Copyright 2025 Conghao Wong, All Rights Reserved.
+ */
+
+/* code blocks */
+.highlighter-rouge {
+    padding: 10px 14px;
+    border-radius: 10px;
+    background-color: rgba(0,0,0,0.02);
+    transition: background-color 0.2s ease-in-out;
+}
+
+.dark-mode .highlighter-rouge {
+    background-color: rgba(255,255,255,0.12);
+}
+
+div.highlight {
+    display: flex;
+    position: relative;
+}
+
+div.highlight > pre {
+    background-image: none;
+    background-position-y: 0;
+    padding: 0;
+    border: none;
+    border-radius: 6px;
+}
+
+div.highlight > .codebox-title {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    right: -4px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    z-index: 99;
+    transition: opacity 0.2s ease-in-out;
+}
+
+div.highlight:hover > .codebox-title {
+    opacity: 1;
+}
+
+.codebox-title > a.btn-colorful {
+    padding: 3px 6px 3px 6px;
+    height: 30px;
+}

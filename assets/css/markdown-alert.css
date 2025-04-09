@@ -1,11 +1,8 @@
----
-layout: null
----
 /*
  * @Author: Conghao Wong
  * @Date: 2025-03-14 16:30:33
  * @LastEditors: Conghao Wong
- * @LastEditTime: 2025-03-31 20:51:09
+ * @LastEditTime: 2025-04-09 14:58:08
  * @Github: https://cocoon2wong.github.io
  * Copyright 2025 Conghao Wong, All Rights Reserved.
  */
@@ -30,7 +27,7 @@ layout: null
 
 .markdown-alert-warning {
     border-left-color: #cc8e1f !important;
-    background-color: #cc8e1f30;
+    background-color: #e6991530;
 }
 
 .markdown-alert-important {

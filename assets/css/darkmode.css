@@ -2,7 +2,7 @@
  * @Author: Conghao Wong
  * @Date: 2025-03-31 15:42:00
  * @LastEditors: Conghao Wong
- * @LastEditTime: 2025-04-01 15:29:42
+ * @LastEditTime: 2025-04-09 14:57:48
  * @Github: https://cocoon2wong.github.io
  * Copyright 2025 Conghao Wong, All Rights Reserved.
  */
@@ -35,6 +35,3 @@ body.dark-mode,
     background-color: var(--dark-mode-footer-background-col);
 }
 
-.dark-mode .highlight pre {
-    background-color: #646464;
-}
