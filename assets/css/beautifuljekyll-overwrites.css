@@ -1,13 +1,71 @@
+---
+layout: null
+---
 /*
  * @Author: Conghao Wong
  * @Date: 2025-04-09 10:06:30
  * @LastEditors: Conghao Wong
- * @LastEditTime: 2025-04-09 14:47:28
+ * @LastEditTime: 2025-04-09 15:13:44
  * @Github: https://cocoon2wong.github.io
  * Copyright 2025 Conghao Wong, All Rights Reserved.
  */
 
-/* code blocks */
+/* --- Variables--- */
+
+:root {
+    --navbar-float-col: {{ site.navbar-float-col | default: "#EAEAEA" }};
+
+    --body-font: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
+    --header-font: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
+}
+
+/* --- General--- */
+
+h2 {
+    color: {{site.button-hover-color}};
+    padding-bottom: 8px;
+    border-bottom: 1px solid #eaeaea;  
+}
+
+/* --- Navbar--- */
+
+.navbar-custom {
+    border-bottom: none;
+    transition: none;
+}
+
+.navbar-custom,
+.navbar-custom.top-nav-short,
+.navbar-custom.top-nav-short-permanent {
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+.navbar-custom .navbar-nav .nav-link {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+/* --- Footer --- */
+
+footer {
+    margin-top: 0;
+}
+
+/* --- Post and page headers --- */
+
+.intro-header.big-img {
+    margin-bottom: 0;
+}
+
+@media (min-width: 1200px) {
+    .intro-header.big-img {
+        margin-top: 0;
+    }
+}
+
+/* --- Code blocks --- */
+
 .highlighter-rouge {
     padding: 10px 14px;
     border-radius: 10px;
