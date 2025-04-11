@@ -43,6 +43,10 @@
         var nodes = title_list['next'].reverse();
 
         while (true) {
+            if (!nodes.length) {
+                break;
+            }
+
             var node = nodes.pop();
             var level = node['level']
             var id = node['id']
@@ -53,10 +57,6 @@
                 next_nodes.forEach(new_node => {
                     nodes.push(new_node);
                 });
-            }
-
-            if (!nodes.length) {
-                break;
             }
 
             var _target_id = node['prev']['id'];
