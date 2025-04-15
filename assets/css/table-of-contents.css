@@ -5,7 +5,7 @@ layout: null
  * @Author: Conghao Wong
  * @Date: 2024-12-25 12:25:05
  * @LastEditors: Conghao Wong
- * @LastEditTime: 2025-03-31 19:47:33
+ * @LastEditTime: 2025-04-15 10:56:50
  * @Github: https://cocoon2wong.github.io
  * Copyright 2024 Conghao Wong, All Rights Reserved.
  */
@@ -28,14 +28,41 @@ layout: null
     --table-of-contents-theme-background-col: {{site.button-hover-color}};
 }
 
+.table-of-contents-container details > summary {
+    position: relative;
+    display: flex;
+}
+
+.table-of-contents-container details > summary > a {
+    flex-grow: 1;
+}
+
+.table-of-contents-container details > summary > .btn {
+    position: absolute;
+    width: 32px;
+    background-color: transparent;
+    top: 0;
+    right: 0;
+    margin: 5px;
+    height: calc(100% - 10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99;
+}
+
+.table-of-contents-container details > summary > .btn:hover {
+    background-color: var(--table-of-contents-theme-background-col);
+}
+
 .table-of-contents-container {
-    padding-top: 5px;
-    padding-bottom: 0;
     border: 0px;
     border-radius: 10px;
     margin-bottom: 20px;
     position: sticky;
-    top: 100px;
+    top: 67px;
+    max-height: calc(100vh - 67px - 15px);
+    overflow: auto;
     background-color: var(--table-of-contents-background-col);
 }
 
@@ -43,33 +70,43 @@ layout: null
     background-color: var(--table-of-contents-background-col-dark);
 }
 
-.table-of-contents-item > a {
+.table-of-contents-item:not(:last-child) {
+    position: relative;
+    margin-bottom: -5px;
+}
+
+.table-of-contents-item:first-child {
+    margin-top: -5px;
+}
+
+.table-of-contents-container details > summary > a {
     display: flex;
     padding: 3px 6px;
     border: 0;
-    border-radius: 6px;
+    border-radius: 6px !important;
     color: var(--table-of-contents-inactive-col);
 }
 
-.dark-mode .table-of-contents-item a {
+.dark-mode .table-of-contents-container details > summary > a {
     color: var(--table-of-contents-inactive-col-dark);
 }
 
 .table-of-contents-title {
-    padding: 0 0 0 10px;
-    color: var(--table-of-contents-title-col);
+    align-items: center;
+    padding: 5px 5px 5px 10px !important;
+    color: var(--table-of-contents-title-col) !important;
 }
 
 .dark-mode .table-of-contents-title {
-    color: var(--table-of-contents-title-col-dark);
+    color: var(--table-of-contents-title-col-dark) !important;
 }
 
 .table-of-contents-title:hover {
-    color: var(--table-of-contents-title-hover-col);
+    color: var(--table-of-contents-title-hover-col) !important;
 }
 
 .dark-mode .table-of-contents-title:hover {
-    color: var(--table-of-contents-title-hover-col-dark);
+    color: var(--table-of-contents-title-hover-col-dark) !important;
 }
 
 .table-of-contents-h2 {
@@ -79,16 +116,18 @@ layout: null
 
 .table-of-contents-h3 {
     font-size: 1rem;
-    margin-left: 1rem !important;
+    margin-left: 2rem !important;
     margin-right: 5px;
-    margin-bottom: 2px;
+    margin-bottom: 5px;
+    margin-top: 5px;
 }
 
 .table-of-contents-h4 {
     font-size: 1rem;
-    margin-left: 2rem !important;
+    margin-left: 4rem !important;
     margin-right: 5px;
-    margin-bottom: 2px;
+    margin-bottom: 5px;
+    margin-top: 5px;
 }
 
 .table-of-contents-h2.nav-link.active,
@@ -103,4 +142,9 @@ layout: null
 .table-of-contents-h4:hover {
     color: var(--table-of-contents-theme-background-col);
     background-color: var(--table-of-contents-background-hover-col);
+}
+
+summary > .nav-link:hover + .btn,
+summary > .nav-link.active + .btn {
+    color: var(--table-of-contents-theme-col);
 }

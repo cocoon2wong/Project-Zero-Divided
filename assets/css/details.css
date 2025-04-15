@@ -5,7 +5,7 @@ layout: null
  * @Author: Conghao Wong
  * @Date: 2025-04-14 19:18:37
  * @LastEditors: Conghao Wong
- * @LastEditTime: 2025-04-14 20:23:48
+ * @LastEditTime: 2025-04-15 09:29:07
  * @Github: https://cocoon2wong.github.io
  * Copyright 2025 Conghao Wong, All Rights Reserved.
  */
@@ -14,46 +14,45 @@ layout: null
     --details-open-border-col: #b1b1b150;
     --details-background-col: {{ site.other-nav-col | default: "#F7F7F9"}};
     --details-background-col-dark: {{ site.other-nav-col-dark | default: "#3D3D3D"}};
-
 }
 
-details {
+.col-xl-8 details {
     transition: background-color 0.2s ease-in-out;
     border-radius: 10px;
     padding: 0 10px;
 }
 
-details summary {
+.col-xl-8 details summary {
     padding: 3px 0;
-    transition: padding 0.2s ease-in-out;
+    /* transition: padding 0.2s ease-in-out; */
 }
 
-details:hover {
+.col-xl-8 details:hover {
     background-color: var(--details-background-col);
 }
 
-.dark-mode details:hover {
+.dark-mode .col-xl-8 details:hover {
     background-color: var(--details-background-col-dark);
 }
 
-details[open] {
+.col-xl-8 details[open] {
     margin-top: 10px;
     background-color: var(--details-background-col);
 }
 
-.dark-mode details[open] {
+.dark-mode .col-xl-8 details[open] {
     background-color: var(--details-background-col-dark);
 }
 
-details[open] summary {
+.col-xl-8 details[open] summary {
     padding: 8px 0;
     border-bottom: 1px solid var(--details-open-border-col);
 }
 
-details[open] > *:nth-child(2) {
+.col-xl-8 details[open] > *:nth-child(2) {
     margin-top: 10px;
 }
 
-details[open] > *:last-child {
+.col-xl-8 details[open] > *:last-child {
     padding-bottom: 10px;
 }

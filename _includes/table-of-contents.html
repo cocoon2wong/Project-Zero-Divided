@@ -1,10 +1,29 @@
 <script>
     const target = document.getElementById('TABLE_OF_CONTENTS');
+    const _OPEN_BUTTON_HTML = 
+        '<a class="btn btn-colorful" onclick="_toggle_details(this)">' + 
+            '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">' + 
+                '<path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>' +
+            '</svg>' + 
+        '</a>';
+
+    function _toggle_details(button) {
+        const details = button.parentElement;
+        if (details) {
+            details.open = !details.open;
+        }
+    }
 
     $(function () {
         var titles = $("h2, h3, h4");
         var prev_level = 0;
         var prev_id = 'TABLE_OF_CONTENTS';
+
+        // Open or close the root container
+        const mediaQuery = window.matchMedia('(max-width: 767px)');
+        if (mediaQuery.matches) {
+            $('#toc-details-TABLE_OF_CONTENTS').removeAttr('open');
+        }
 
         // Visit all titles
         const title_list = {
@@ -68,17 +87,19 @@
 
             // Create container
             _target.innerHTML +=
-                '<nav class="nav nav-pills flex-column table-of-contents-item" id="toc-' + id + '" ></nav>';
-            _target = document.getElementById('toc-' + id);
+                '<nav class="nav nav-pills flex-column table-of-contents-item" id="toc-' + id + '" ><details open id="toc-details-' + id + '"></details></nav>';
+            _target = document.getElementById('toc-details-' + id);
+
+            var _button_html = next_nodes.length ? _OPEN_BUTTON_HTML : '';
 
             // Add current node
             _target.innerHTML +=
-                '<a class="nav-link table-of-contents-h' + String(node['level']) + '"' +
+                '<summary><a class="nav-link table-of-contents-h' + String(node['level']) + '"' +
                 'id=' + id + ' ' +
                 'href="#' + node['title'].id +
                 '">' +
                 node['title'].innerHTML +
-                '</a>';
+                '</a>' + _button_html + '</summary>';
 
             // Create empty nav container
             if (next_nodes.length) {
