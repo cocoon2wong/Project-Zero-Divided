@@ -5,13 +5,13 @@ layout: null
  * @Author: Conghao Wong
  * @Date: 2024-12-25 12:25:05
  * @LastEditors: Conghao Wong
- * @LastEditTime: 2025-04-15 10:56:50
+ * @LastEditTime: 2025-06-20 16:15:18
  * @Github: https://cocoon2wong.github.io
  * Copyright 2024 Conghao Wong, All Rights Reserved.
  */
 
 :root {
-    --table-of-contents-background-col: {{ site.other-nav-col | default: "#F7F7F9"}};
+    --table-of-contents-background-col: {{ site.other-nav-col | default: "#F7F7F9aa"}};
     --table-of-contents-background-col-dark: {{ site.other-nav-col-dark | default: "#3D3D3D"}};
 
     --table-of-contents-title-col: #6c757da0;
@@ -57,17 +57,37 @@ layout: null
 
 .table-of-contents-container {
     border: 0px;
-    border-radius: 10px;
+    border-radius: 14px;
     margin-bottom: 20px;
     position: sticky;
     top: 67px;
     max-height: calc(100vh - 67px - 15px);
     overflow: auto;
-    background-color: var(--table-of-contents-background-col);
+    background: linear-gradient(45deg, 
+        var(--table-of-contents-theme-background-col) 0%,
+        var(--table-of-contents-background-col) 100%);
+}
+
+.table-of-contents-container .liquidGlass-effect {
+    margin: 1px;
+    background-color: rgba(255, 255, 255, 0.95);
+}
+
+.table-of-contents-container .liquidGlass-effect,
+.table-of-contents-container .liquidGlass-tint,
+.table-of-contents-container .liquidGlass-shine {
+    border-radius: 13px;
 }
 
 .dark-mode .table-of-contents-container {
-    background-color: var(--table-of-contents-background-col-dark);
+    background: linear-gradient(45deg, 
+        var(--table-of-contents-theme-background-col) 0%,
+        var(--table-of-contents-background-col-dark) 100%);
+}
+
+.dark-mode .table-of-contents-container .liquidGlass-effect {
+    margin: 1px;
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
 .table-of-contents-item:not(:last-child) {
@@ -81,9 +101,9 @@ layout: null
 
 .table-of-contents-container details > summary > a {
     display: flex;
-    padding: 3px 6px;
+    padding: 3px 10px;
     border: 0;
-    border-radius: 6px !important;
+    border-radius: 10px !important;
     color: var(--table-of-contents-inactive-col);
 }
 
