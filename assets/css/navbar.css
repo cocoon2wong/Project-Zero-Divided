@@ -2,7 +2,7 @@
  * @Author: Conghao Wong
  * @Date: 2025-03-25 20:15:43
  * @LastEditors: Conghao Wong
- * @LastEditTime: 2025-06-20 12:58:29
+ * @LastEditTime: 2025-06-20 15:18:55
  * @Github: https://cocoon2wong.github.io
  * Copyright 2025 Conghao Wong, All Rights Reserved.
  */
@@ -64,8 +64,13 @@
     font-size: 8px;
 }
 
-.top-nav-active {
+.top-nav-float-container .nav-item {
     position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.top-nav-active {
     padding: 0 14px;
 }
 

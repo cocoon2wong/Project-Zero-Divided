@@ -2,7 +2,7 @@
  * @Author: Conghao Wong
  * @Date: 2025-03-25 19:41:54
  * @LastEditors: Conghao Wong
- * @LastEditTime: 2025-06-20 12:54:46
+ * @LastEditTime: 2025-06-20 14:57:36
  * @Github: https://cocoon2wong.github.io
  * Copyright 2025 Conghao Wong, All Rights Reserved.
  */
@@ -131,6 +131,11 @@ function set_nav_bar_css(rate, no_animation = false) {
     })
 
     $('.navbar-nav .nav-link').css({
+        'padding-top': String(linear(rate, 10, 15) + 'px'),
+        'padding-bottom': String(linear(rate, 10, 15) + 'px'),
+    })
+    
+    $('.navbar-nav .nav-link:has(.top-nav-float-icon)').css({
         'padding-top': String(linear(rate, 2, 15) + 'px'),
         'padding-bottom': String(linear(rate, 2, 15) + 'px'),
     })
