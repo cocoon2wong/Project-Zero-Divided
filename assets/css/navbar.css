@@ -2,7 +2,7 @@
  * @Author: Conghao Wong
  * @Date: 2025-03-25 20:15:43
  * @LastEditors: Conghao Wong
- * @LastEditTime: 2025-03-31 19:39:45
+ * @LastEditTime: 2025-06-20 12:58:29
  * @Github: https://cocoon2wong.github.io
  * Copyright 2025 Conghao Wong, All Rights Reserved.
  */
@@ -31,11 +31,42 @@
     right: 0;
     transition: none;
     z-index: -1;
+    filter: url(#glass-distortion);
 }
 
 .top-nav-float-container {
-    border-radius: 25px;
-    box-sizing: border-box;
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.2), 0 0 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 2.2);
+}
+
+.top-nav-float-container,
+.top-nav-float-container > div {
+    border-radius: 35px;
+}
+
+.top-nav-float-container .nav-item:first-child:not(.top-nav-active) {
+    padding-left: 8px;
+}
+
+.top-nav-float-icon {
+    text-align: center;
+    font-size: 30px;
+}
+
+.top-nav-container:not(.top-nav-float) .top-nav-float-icon {
+    display: none;
+}
+
+.nav-link:has(.top-nav-float-icon) {
+    font-size: 8px;
+}
+
+.top-nav-active {
+    position: relative;
+    padding: 0 14px;
 }
 
 .top-nav-active > .nav-link {
@@ -61,12 +92,16 @@
 }
 
 .nav-item-active {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    height: calc(100% - 10px);
+    width: calc(100% - 10px);
     content: '';
     display: block;
-    height: 34px;
     background-color: var(--navbar-float-active-background-col);
-    border-radius: 17px;
-    margin-top: -37px;
+    border-radius: 30px;
+    /* margin-top: -37px; */
     z-index: -1;
 }
 

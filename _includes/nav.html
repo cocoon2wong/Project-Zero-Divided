@@ -13,6 +13,9 @@
 
   	<div class="collapse navbar-collapse" id="main-navbar">
 		<div class="ms-auto top-nav-float-container">
+			<div class="liquidGlass-effect"></div>
+			<div class="liquidGlass-tint"></div>
+			<div class="liquidGlass-shine"></div>
     		<ul class="navbar-nav">
 {%- for link in site.navbar-links -%}
 	{%- if link[1].first %}
@@ -29,7 +32,13 @@
           		</li>
 	{% else %}
           		<li class="nav-item">
-            		<a class="nav-link" href="{{ link[1] | relative_url }}">{{ link[0] }}</a>
+					{% assign _name = link[0] %}
+            		<a class="nav-link" href="{{ link[1] | relative_url }}">
+						{% if site.navbar-icons contains _name %}
+						<div class="top-nav-float-icon">{{ site.navbar-icons[_name] }}</div>
+						{% endif %}
+						{{ _name }}
+					</a>
           		</li>
 	{%- endif -%}
 {%- endfor -%}

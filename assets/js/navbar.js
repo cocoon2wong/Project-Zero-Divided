@@ -2,7 +2,7 @@
  * @Author: Conghao Wong
  * @Date: 2025-03-25 19:41:54
  * @LastEditors: Conghao Wong
- * @LastEditTime: 2025-03-31 19:53:00
+ * @LastEditTime: 2025-06-20 12:54:46
  * @Github: https://cocoon2wong.github.io
  * Copyright 2025 Conghao Wong, All Rights Reserved.
  */
@@ -84,11 +84,17 @@ function update_nav_color(if_dark) {
 
 
 function set_nav_bar_css(rate, no_animation = false) {
+    if (rate < 1) {
+        $('.top-nav-container').addClass('top-nav-float');
+    } else {
+        $('.top-nav-container').removeClass('top-nav-float');
+    }
+    
     // `navbar-custom` is the normal navigation bar
     $('.top-nav-container').css({
         'background-color': '#FFFFFF00',
         'padding-top': String(linear(rate, 10, 0)) + 'px',
-        'padding-bottom': String(linear(rate, max_scroll() - 5, 0)) + 'px',
+        'padding-bottom': String(linear(rate, 10, 0)) + 'px',
     });
 
     $('.top-nav-background-container').css({
@@ -111,38 +117,29 @@ function set_nav_bar_css(rate, no_animation = false) {
 
     // `navbar-nav` is the small float navigation bar
     $('.top-nav-float-container').css({
-        'background-color': linear_color(
-            rate ** 2, NAV_FLOAT_COLOR,
-            NAV_BAR_COLOR.substring(0, NAV_BAR_COLOR.length - 2) + '00'
-        ),
-        'border': '1px solid ' + linear_color(
-            rate ** 2, NAV_FLOAT_BORDER_COLOR,
-            NAV_FLOAT_BORDER_COLOR.substring(0, NAV_FLOAT_BORDER_COLOR.length - 2) + '00',
-        ),
         'box-shadow': (
             '0 ' + String(linear(rate ** 0.5, 3, 0)) + 'px ' +
             String(linear(rate ** 0.5, 20, 0)) + 'px ' +
             'rgba(0, 0, 0, ' + String(linear(rate ** 0.5, 0.336, 0)) + ')'
         ),
-        'padding-left': String(linear(rate, 4, 20)) + 'px',
+        'padding-left': String(linear(rate, 1, 20)) + 'px',
         'padding-right': String(linear(rate, 20, 10)) + 'px',
-        'backdrop-filter': (
-            'saturate(' + String(linear(rate ** 4, 180, 100)) + '%) ' +
-            'blur(' + String(linear(rate ** 2, 20, 0)) + 'px)'
-        ),
+    })
+
+    $('.top-nav-float-container > div[class^="liquid"]').css({
+        'opacity': String(linear(rate ** 0.8, 1, 0)),
     })
 
     $('.navbar-nav .nav-link').css({
-        'padding-top': String(linear(rate, 10, 15) + 'px'),
-        'padding-bottom': String(linear(rate, 10, 15) + 'px'),
+        'padding-top': String(linear(rate, 2, 15) + 'px'),
+        'padding-bottom': String(linear(rate, 2, 15) + 'px'),
     })
 
     $('.top-nav-active-background-container').addClass('nav-item-active');
     $('.nav-item-active').css({
-        'border-radius': String(linear(rate ** 0.8, 17, 1)) + 'px',
-        'height': String(linear(rate ** 0.5, 34, 20)) + 'px',
-        'margin-top': String(linear(rate ** 0.5, -37, -20)) + 'px',
-        'background-color': linear_color(rate ** 0.05, '#FFFFFFA0', '#FFFFFF00'),
+        'border-radius': String(linear(rate ** 0.95, 30, 1)) + 'px',
+        'top': String(linear(rate ** 0.5, 5, 10)) + 'px',
+        'background-color': linear_color(rate ** 0.15, '#FFFFFFA0', '#FFFFFF00'),
         'border-bottom': (
             '1px solid ' +
             linear_color(
@@ -153,13 +150,20 @@ function set_nav_bar_css(rate, no_animation = false) {
         ),
     })
 
+    $('.top-nav-float-icon').css({
+        'font-size': String(linear(rate, 30, 0)) + 'px',
+        'margin-top': String(linear(rate, 5, 0)) + 'px',
+        'height': String(linear(rate, 20, 0)) + 'px',
+        'opacity': String(linear(rate ** 0.10, 1, 0)),
+    })
+
+    $('.nav-link:has(.top-nav-float-icon)').css({
+        'font-size': String(linear(rate ** 1.1, 8, 13)) + 'px',
+    })
+
     // For other components
     if (!no_animation) {
         $('.page-heading > h1').css({ 'opacity': String(1 - rate) });
-
-        $('.big-img').css({
-            'opacity': linear(rate ** 3, 1.0, 0.0),
-        })
 
         $('.main-page-container').css({
             'box-shadow': '-5px -5px 10px -4px ' + linear_color(
@@ -171,10 +175,6 @@ function set_nav_bar_css(rate, no_animation = false) {
         $('.top-nav-float-container').css({
             'border': '1px solid #00000000',
         });
-
-        $('.big-img').css({
-            'opacity': '1',
-        })
     }
 }
 
@@ -203,8 +203,12 @@ $(function () {
     // Set init states
     $('.navbar-nav').find('li').each(function () {
         let a = $(this).find('a:first')[0];
+        let path = location.pathname;
+        if (path == '/') {
+            path = '/index';            
+        }
 
-        if (location.pathname.startsWith($(a).attr('href'))) {
+        if (path.startsWith($(a).attr('href'))) {
             $(this).addClass('top-nav-active');
             $(this).append('<nav class="top-nav-active-background-container"></nav>');
         }
