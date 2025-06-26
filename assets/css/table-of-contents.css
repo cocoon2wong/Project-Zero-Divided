@@ -5,7 +5,7 @@ layout: null
  * @Author: Conghao Wong
  * @Date: 2024-12-25 12:25:05
  * @LastEditors: Conghao Wong
- * @LastEditTime: 2025-06-20 16:15:18
+ * @LastEditTime: 2025-06-26 09:55:22
  * @Github: https://cocoon2wong.github.io
  * Copyright 2024 Conghao Wong, All Rights Reserved.
  */
@@ -77,6 +77,10 @@ layout: null
 .table-of-contents-container .liquidGlass-tint,
 .table-of-contents-container .liquidGlass-shine {
     border-radius: 13px;
+}
+
+.table-of-contents-container.liquidGlass-wrapper {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.10), 0 0 20px rgba(0, 0, 0, 0.07);
 }
 
 .dark-mode .table-of-contents-container {
