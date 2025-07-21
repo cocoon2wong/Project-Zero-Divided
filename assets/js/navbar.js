@@ -2,7 +2,7 @@
  * @Author: Conghao Wong
  * @Date: 2025-03-25 19:41:54
  * @LastEditors: Conghao Wong
- * @LastEditTime: 2025-06-20 14:57:36
+ * @LastEditTime: 2025-07-21 10:45:45
  * @Github: https://cocoon2wong.github.io
  * Copyright 2025 Conghao Wong, All Rights Reserved.
  */
@@ -168,7 +168,7 @@ function set_nav_bar_css(rate, no_animation = false) {
 
     // For other components
     if (!no_animation) {
-        $('.page-heading > h1').css({ 'opacity': String(1 - rate) });
+        // $('.page-heading > h1').css({ 'opacity': String(1 - rate) });
 
         $('.main-page-container').css({
             'box-shadow': '-5px -5px 10px -4px ' + linear_color(

@@ -4,6 +4,7 @@ let BeautifulJekyllJS = {
 
   bigImgEl : null,
   numImgs : null,
+  imgCount : 0,
 
   init : function() {
     setTimeout(BeautifulJekyllJS.initNavbar, 10);
@@ -73,7 +74,7 @@ let BeautifulJekyllJS = {
         setTimeout(function(){
           const img = $("<div></div>").addClass("big-img-transition").css("background-image", 'url(' + src + ')');
           $(".intro-header.big-img").prepend(img);
-          setTimeout(function(){ img.css("opacity", "1"); }, 50);
+          // setTimeout(function(){ img.css({"opacity": "1"}); }, 50);
 
           // after the animation of fading in the new image is done, prefetch the next one
           //img.one("transitioned webkitTransitionEnd oTransitionEnd MSTransitionEnd", function(){
@@ -94,7 +95,15 @@ let BeautifulJekyllJS = {
   },
 
   getImgInfo : function() {
-    const randNum = Math.floor((Math.random() * BeautifulJekyllJS.numImgs) + 1);
+    if (BeautifulJekyllJS.imgCount == BeautifulJekyllJS.numImgs) {
+      BeautifulJekyllJS.imgCount = 1;      
+    } else {
+      BeautifulJekyllJS.imgCount = BeautifulJekyllJS.imgCount + 1;
+    }
+
+    const randNum = BeautifulJekyllJS.imgCount;
+    
+    // const randNum = Math.floor((Math.random() * BeautifulJekyllJS.numImgs) + 1);
     const src = BeautifulJekyllJS.bigImgEl.attr("data-img-src-" + randNum);
     const desc = BeautifulJekyllJS.bigImgEl.attr("data-img-desc-" + randNum);
 
