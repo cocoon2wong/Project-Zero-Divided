@@ -1,0 +1,66 @@
+---
+common-css:
+  - "/assets/css/bootstrap-social.css"
+  - "/assets/css/beautifuljekyll.css"
+  - "/assets/css/beautifuljekyll-overwrites.css"
+  - "/assets/css/liquid-glass.css"
+  - "/assets/css/darkmode.css"
+  - "/assets/css/navbar.css"
+  - "/assets/css/buttons.css"
+  - "/assets/css/table-of-contents.css"
+  - "/assets/css/details.css"
+  - "/assets/css/gallery.css"
+  - "/assets/css/breadcrumb.css"
+  - "/assets/css/markdown-alert.css"
+  - "/assets/css/homepage.css"
+common-ext-css:
+  - "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+  - "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  - "https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic"
+  - "https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
+common-ext-js:
+  - href: "https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    sri: "sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs="
+  - href: "https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    sri: "sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+  - href: "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+common-js:
+  - "/assets/js/beautifuljekyll.js"
+  - "/assets/js/beautifuljekyll-overwrites.js"
+  - "/assets/js/navbar.js"
+  - "/assets/js/darkmode.js"
+  - "/assets/js/gallery.js"
+---
+
+<!DOCTYPE html>
+<html lang="{{ page.language | default: site.language | default: 'en' }}">
+<!-- Beautiful Jekyll 6.0.1 | Copyright Dean Attali 2023 -->
+{% include head.html %}
+
+<body class="home-fullscreen-sections">
+{% include gtm_body.html %}
+
+{% include nav.html %}
+
+{% include header.html type="page" %}
+
+    <div class="main-page-container {% if page.cover-img %}main-page-container-shadow{% endif %} col">
+        <div class="{% if page.full-width %} container-fluid {% else %} container-md {% endif %}" role="main">
+            <div class="row">
+
+    {{ content }}
+
+    {% include comments.html %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% include footer.html %}
+
+{% include footer-scripts.html %}
+
+{% include post-process.html %}
+
+</body>
+</html>

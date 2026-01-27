@@ -2,7 +2,7 @@
  * @Author: Conghao Wong
  * @Date: 2025-03-25 19:41:54
  * @LastEditors: Conghao Wong
- * @LastEditTime: 2025-07-21 10:45:45
+ * @LastEditTime: 2026-01-27 19:44:51
  * @Github: https://cocoon2wong.github.io
  * Copyright 2025 Conghao Wong, All Rights Reserved.
  */
@@ -202,6 +202,12 @@ function init_animation() {
 
 
 $(function () {
+    // Home: skip navbar animation entirely
+    if ($(window).width() > 1199 && $('body').hasClass('home-fullscreen-sections')) {
+        set_nav_bar_css(0.0, no_animation = true);      
+        return;
+    }
+    
     // Shorten the navbar after scrolling a little bit down
     shorten = $('.top-nav-regular').length ? true : false;
 
