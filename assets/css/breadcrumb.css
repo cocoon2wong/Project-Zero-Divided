@@ -5,7 +5,7 @@ layout: null
  * @Author: Conghao Wong
  * @Date: 2025-03-21 15:05:13
  * @LastEditors: Conghao Wong
- * @LastEditTime: 2025-03-31 19:36:27
+ * @LastEditTime: 2026-01-28 10:03:55
  * @Github: https://cocoon2wong.github.io
  * Copyright 2025 Conghao Wong, All Rights Reserved.
  */
@@ -23,10 +23,8 @@ layout: null
 }
 
 .breadcrumb-container {
-    padding: 0;
-    border: 0;
-    border-radius: 10px;
-    margin-bottom: 20px;
+    padding-right: 14px;
+    margin-bottom: 10px;
     background-color: var(--breadcrumb-background-color);
 }
 
@@ -36,7 +34,7 @@ layout: null
 
 .breadcrumb {
     margin: 0;
-    padding-left: 2px;
+    padding-left: 1px;
     padding-top: 5px;
     padding-bottom: 5px;
 }
@@ -44,7 +42,7 @@ layout: null
 .breadcrumb-item > a {
     margin: 3px;
     padding: 3px 6px;
-    border-radius: 6px;
+    border-radius: 999px;
     text-decoration: none;
     transition: all .1s ease-in-out;
     color: var(--breadcrumb-color);
