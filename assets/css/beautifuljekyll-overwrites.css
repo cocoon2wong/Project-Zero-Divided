@@ -5,7 +5,7 @@ layout: null
  * @Author: Conghao Wong
  * @Date: 2025-04-09 10:06:30
  * @LastEditors: Conghao Wong
- * @LastEditTime: 2025-04-09 15:13:44
+ * @LastEditTime: 2026-01-28 15:41:47
  * @Github: https://cocoon2wong.github.io
  * Copyright 2025 Conghao Wong, All Rights Reserved.
  */
@@ -67,9 +67,9 @@ footer {
 /* --- Code blocks --- */
 
 .highlighter-rouge:not(.language-plaintext) {
-    padding: 10px 14px;
-    border-radius: 10px;
-    background-color: rgba(0,0,0,0.02);
+    padding: 10px 20px;
+    border-radius: 20px;
+    background-color: rgba(0,0,0,0.03);
     transition: background-color 0.2s ease-in-out;
 }
 
@@ -94,8 +94,8 @@ div.highlight > .codebox-title {
     opacity: 0;
     position: absolute;
     top: 0;
-    right: -4px;
-    height: 30px;
+    right: -13px;
+    height: 21px;
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -108,6 +108,6 @@ div.highlight:hover > .codebox-title {
 }
 
 .codebox-title > a.btn-colorful {
-    padding: 3px 6px 3px 6px;
-    height: 30px;
+    border-radius: 999px;
+    line-height: 1.1;
 }

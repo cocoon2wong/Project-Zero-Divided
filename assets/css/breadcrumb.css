@@ -5,7 +5,7 @@ layout: null
  * @Author: Conghao Wong
  * @Date: 2025-03-21 15:05:13
  * @LastEditors: Conghao Wong
- * @LastEditTime: 2026-01-28 10:03:55
+ * @LastEditTime: 2026-01-28 15:25:53
  * @Github: https://cocoon2wong.github.io
  * Copyright 2025 Conghao Wong, All Rights Reserved.
  */
@@ -17,19 +17,41 @@ layout: null
     --breadcrumb-active-color: #616A72;
     --breadcrumb-active-color-dark: #FFFFFF;
 
-    --breadcrumb-background-color: {{ site.other-nav-col | default: "#F7F7F9"}};
+    --breadcrumb-background-color: {{ site.other-nav-col | default: "#FaFaFc"}};
     --breadcrumb-hover-background-color: {{ site.hover-col | default: "#0085A1" }};
     --breadcrumb-background-color-dark: {{ site.other-nav-col-dark | default: "#3D3D3D"}};
 }
 
 .breadcrumb-container {
+    position: relative;
+    overflow: hidden;
+    padding-left: 1px;
     padding-right: 14px;
     margin-bottom: 10px;
-    background-color: var(--breadcrumb-background-color);
+    background: linear-gradient(45deg, 
+        var(--breadcrumb-hover-background-color) 0%,
+        var(--breadcrumb-background-color) 100%);
 }
 
 .dark-mode .breadcrumb-container {
-    background-color: var(--breadcrumb-background-color-dark);
+    background: linear-gradient(45deg, 
+        var(--breadcrumb-hover-background-color) 0%,
+        var(--breadcrumb-background-color-dark) 100%);
+}
+
+.breadcrumb-container::before {
+    content:"";
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    z-index:0;
+    border-radius: 0;
+    background-color: rgba(255, 255, 255, 0.97);
+}
+
+.breadcrumb-container > * {
+    position: relative;
+    z-index: 1;
 }
 
 .breadcrumb {

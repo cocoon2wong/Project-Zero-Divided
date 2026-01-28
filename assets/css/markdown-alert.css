@@ -2,15 +2,18 @@
  * @Author: Conghao Wong
  * @Date: 2025-03-14 16:30:33
  * @LastEditors: Conghao Wong
- * @LastEditTime: 2025-06-26 09:54:55
+ * @LastEditTime: 2026-01-28 15:48:27
  * @Github: https://cocoon2wong.github.io
  * Copyright 2025 Conghao Wong, All Rights Reserved.
  */
 
 
 .markdown-alert {
+    margin-top: 10px;
+    padding-left: 18px !important;
+    padding-right: 18px !important;
     position: relative;
-    border-radius: 14px;
+    border-radius: 20px;
     z-index: 0;
     border-left: none !important;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.10), 0 0 20px rgba(0, 0, 0, 0.07);
@@ -22,12 +25,12 @@
 }
 
 .markdown-alert >:first-child{
-    margin-top: 5px !important;
+    margin-top: 6px !important;
     margin-bottom: 15px !important;
 }
 
 .markdown-alert >:nth-child(2){
-    margin-top: 15px !important;
+    margin-top: 12px !important;
 }
 
 .markdown-alert::before {
@@ -37,7 +40,7 @@
     filter: url(#glass-distortion);
     backdrop-filter: saturate(180%) blur(3px);
     position: absolute;
-    border-radius: 14px;
+    border-radius: 19.5px;
     z-index: -1;
     background-color: rgba(255, 255, 255, 0.8);
 }
