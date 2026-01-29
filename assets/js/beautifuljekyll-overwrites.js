@@ -2,7 +2,7 @@
  * @Author: Conghao Wong
  * @Date: 2025-04-09 11:06:19
  * @LastEditors: Conghao Wong
- * @LastEditTime: 2025-04-09 14:46:07
+ * @LastEditTime: 2026-01-29 16:47:21
  * @Github: https://cocoon2wong.github.io
  * Copyright 2025 Conghao Wong, All Rights Reserved.
  */
@@ -29,4 +29,6 @@ $(function () {
             onclick="_copy_codes(this)">\
             Copy\
         </a>');
+
+    $('.post-preview').addClass('pill');
 });

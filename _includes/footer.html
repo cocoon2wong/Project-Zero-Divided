@@ -13,18 +13,25 @@
                 <p class="copyright text-muted">
                     {% if site.author %}
                     {{ site.author }}
-                    &nbsp;&bull;&nbsp;
                     {% endif %}
-                    {{ site.time | date: '%Y' }}
-
+                    &nbsp{{ site.time | date: '%Y' }}
+                </p>
+                <p class="copyright text-muted">
                     {% if site.url-pretty %}
-                    &nbsp;&bull;&nbsp;
                     <span class="author-site">
                         <a
                             href="{% if site.url-canonical %}{{ site.url-canonical }}{% else %}{{ '' | absolute_url }}{% endif %}">{{
                             site.url-pretty }}</a>
                     </span>
                     {% endif %}
+
+                    &nbsp;&bull;&nbsp;
+                    <a class="footer-toggle-link"
+                        onclick="dark_mode_toggle()"
+                        href="javascript:void(0);"
+                        title="Toggle dark / light mode">
+                        Toggle Dark Mode
+                    </a>
 
                     {% if site.matomo %}
                     {% if site.matomo.opt-out %}

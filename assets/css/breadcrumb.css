@@ -5,7 +5,7 @@ layout: null
  * @Author: Conghao Wong
  * @Date: 2025-03-21 15:05:13
  * @LastEditors: Conghao Wong
- * @LastEditTime: 2026-01-28 15:25:53
+ * @LastEditTime: 2026-01-29 15:05:09
  * @Github: https://cocoon2wong.github.io
  * Copyright 2025 Conghao Wong, All Rights Reserved.
  */
@@ -47,6 +47,10 @@ layout: null
     z-index:0;
     border-radius: 0;
     background-color: rgba(255, 255, 255, 0.97);
+}
+
+.dark-mode .breadcrumb-container::before {
+    background-color: rgba(48, 48, 48, 0.8);
 }
 
 .breadcrumb-container > * {

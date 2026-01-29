@@ -2,14 +2,16 @@
  * @Author: Conghao Wong
  * @Date: 2025-03-25 20:15:43
  * @LastEditors: Conghao Wong
- * @LastEditTime: 2025-06-20 15:18:55
+ * @LastEditTime: 2026-01-29 16:38:31
  * @Github: https://cocoon2wong.github.io
  * Copyright 2025 Conghao Wong, All Rights Reserved.
  */
 
 :root {
     --main-page-col: #FFFFFF;
+    --main-page-col-gray: #f5f5f7;
     --main-page-col-dark: #1e1e1c;
+    --main-page-col-dark-gray: #1d1d1f;
     --main-page-shadow-col: #00000060;
 
 
@@ -17,7 +19,7 @@
     --navbar-float-active-background-col: #FFFFFFa0;
 
     --navbar-col-dark: #14141460;
-    
+
     --header-background-col: #FFF;
     --header-background-col-dark: #000;
 }
@@ -43,7 +45,7 @@
 }
 
 .top-nav-float-container,
-.top-nav-float-container > div {
+.top-nav-float-container>div {
     border-radius: 35px;
 }
 
@@ -74,7 +76,7 @@
     padding: 0 14px;
 }
 
-.top-nav-active > .nav-link {
+.top-nav-active>.nav-link {
     color: var(--hover-col) !important;
 }
 
@@ -85,11 +87,38 @@
 .main-page-container {
     padding-top: 15px;
     padding-bottom: 3.125rem;
+    position: relative;
+    z-index: 2;
+}
+
+/* 向上阴影 */
+body:not(.home-fullscreen-sections) .main-page-container .main-page-container::before {
+    content: "";
+    position: absolute;
+    top: -30px;
+    left: 0;
+    right: 0;
+    height: 30px;
+    pointer-events: none;
+    background: linear-gradient(to top,
+            rgba(0, 0, 0, 0.14),
+            rgba(0, 0, 0, 0.0));
+}
+
+.page-bg-white .main-page-container {
     background-color: var(--main-page-col);
 }
 
-.dark-mode .main-page-container {
+.page-bg-gray .main-page-container {
+    background: var(--main-page-col-gray);
+}
+
+.dark-mode.page-bg-white .main-page-container {
     background-color: var(--main-page-col-dark);
+}
+
+.dark-mode.page-bg-gray .main-page-container {
+    background-color: var(--main-page-col-dark-gray);
 }
 
 .main-page-container-shadow {

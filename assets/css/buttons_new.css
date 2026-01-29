@@ -1,0 +1,71 @@
+---
+layout: null
+---
+/*
+ * @Author: Conghao Wong
+ * @Date: 2026-01-29 17:00:40
+ * @LastEditors: Conghao Wong
+ * @LastEditTime: 2026-01-29 18:42:58
+ * @Github: https://cocoon2wong.github.io
+ * Copyright 2026 Conghao Wong, All Rights Reserved.
+ */
+
+:root {
+  --btn-normal-background-col: #fcfcfe;
+  --btn-normal-background-col-dark: #3c3c3c;
+  --btn-normal-text-color: #3c3c3c;
+  --btn-normal-text-color-dark: #FFFFFF;
+
+  --btn-theme-active-background-col: {{ site.button-hover-color | default: "#eaeaeaa0" }};
+  --btn-theme-active-col: {{ site.button-active-text-color | default: "#000" }};
+}
+
+.pagination .next .page-link,
+.pagination .previous .page-link,
+.btn-normal,
+.btn-theme {
+    border: 0;
+    border-radius: 999px;
+    box-shadow:
+        0 2px 10px rgba(0, 0, 0, 0.16),
+        inset 0 1px 0 rgba(255, 255, 255, 0.55);
+}
+
+.pagination .next .page-link:hover,
+.pagination .previous .page-link:hover,
+.btn-normal:hover,
+.btn-theme:hover {
+    border: 0;
+}
+
+.dark-mode .pagination .next .page-link,
+.dark-mode .pagination .previous .page-link,
+.dark-mode .btn-normal,
+.dark-mode .btn-theme {
+    box-shadow:
+        0 2px 12px rgba(0, 0, 0, 0.45),
+        inset 0 1px 0 rgba(255, 255, 255, 0.20);
+}
+
+/* 普通按钮的平常状态 */
+.pagination .previous .page-link,
+.btn-normal {
+    color: var(--btn-normal-text-color);
+    background-color: var(--btn-normal-background-col);
+}
+
+.dark-mode .pagination .previous .page-link,
+.dark-mode .btn-normal {
+    color: var(--btn-normal-text-color-dark);
+    background-color: var(--btn-normal-background-col-dark);
+}
+
+/* 普通按钮的hover状态
+主题按钮的普通/hover状态 */
+.pagination .next .page-link,
+.pagination .previous .page-link:hover,
+.btn-normal:hover,
+.btn-theme {
+    color: var(--btn-theme-active-col);
+    background-color: var(--btn-theme-active-background-col);
+}
