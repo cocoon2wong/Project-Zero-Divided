@@ -109,6 +109,8 @@ body:not(.home-fullscreen-sections) .main-page-container .main-page-container::b
     background-color: var(--main-page-col);
 }
 
+.page-bg-gray,
+.page-bg-gray header,
 .page-bg-gray .main-page-container,
 .page-bg-gray footer {
     background-color: var(--main-page-col-gray);
