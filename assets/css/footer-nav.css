@@ -2,7 +2,7 @@
  * @Author: Conghao Wong
  * @Date: 2026-05-12 14:57:08
  * @LastEditors: Conghao Wong
- * @LastEditTime: 2026-05-12 18:14:01
+ * @LastEditTime: 2026-05-12 18:49:59
  * @Github: https://cocoon2wong.github.io
  * Copyright 2026 Conghao Wong, All Rights Reserved.
  */
@@ -52,16 +52,14 @@ body:not(.page-bg-white) .main-page-container {
     grid-template-columns: 1fr;
 }
 
+.footer-directory .directory-list-title {
+    font-weight: bold;
+    margin-bottom: 0.7rem;
+}
+
 .directory-column {
     display: flex;
     flex-direction: column;
-}
-
-.directory-title {
-    font-size: 14px;
-    font-weight: 600;
-    margin-bottom: 0.8rem;
-    letter-spacing: 0.02em;
 }
 
 .directory-list {
