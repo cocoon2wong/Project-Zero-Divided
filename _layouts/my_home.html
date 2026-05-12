@@ -12,6 +12,7 @@ common-css:
   - "/assets/css/details.css"
   - "/assets/css/gallery.css"
   - "/assets/css/breadcrumb.css"
+  - "/assets/css/footer-nav.css"
   - "/assets/css/markdown-alert.css"
   - "/assets/css/homepage.css"
 common-ext-css:
@@ -38,7 +39,7 @@ common-js:
 <!-- Beautiful Jekyll 6.0.1 | Copyright Dean Attali 2023 -->
 {% include head.html %}
 
-<body class="home-fullscreen-sections">
+<body class="home-fullscreen-sections page-bg-{{ page.page_bg | default: 'white' }}">
 {% include gtm_body.html %}
 
 {% include nav.html %}

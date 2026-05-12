@@ -5,7 +5,7 @@ layout: null
  * @Author: Conghao Wong
  * @Date: 2025-04-09 10:06:30
  * @LastEditors: Conghao Wong
- * @LastEditTime: 2026-01-29 18:42:36
+ * @LastEditTime: 2026-05-12 15:57:56
  * @Github: https://cocoon2wong.github.io
  * Copyright 2025 Conghao Wong, All Rights Reserved.
  */
@@ -53,6 +53,9 @@ h2 {
 
 footer {
     margin-top: 0;
+    border: none;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
 }
 
 /* --- Post and page headers --- */

@@ -1,0 +1,157 @@
+/*
+ * @Author: Conghao Wong
+ * @Date: 2026-05-12 14:57:08
+ * @LastEditors: Conghao Wong
+ * @LastEditTime: 2026-05-12 18:14:01
+ * @Github: https://cocoon2wong.github.io
+ * Copyright 2026 Conghao Wong, All Rights Reserved.
+ */
+
+:root {
+    --footer-text-active-color: #616A72;
+    --footer-text-active-color-dark: #FFFFFF;
+    --footer-border-color: #00000035;
+}
+
+.footer-nav.breadcrumb-container {
+    background: transparent;
+    font-size: 14px;
+    padding-left: 0;
+}
+
+body:not(.page-bg-white) .footer-nav.breadcrumb-container {
+    border-top: 1px solid var(--footer-border-color);
+    padding-top: 10px;
+}
+
+body:not(.page-bg-white) .main-page-container {
+    padding-bottom: 15px;
+}
+
+.footer-nav.breadcrumb-container::before {
+    background: transparent;
+}
+
+.footer-nav .breadcrumb .breadcrumb-item:first-child a {
+    margin-left: 0;
+}
+
+.footer-nav .breadcrumb-item svg {
+    margin-right: 3px;
+}
+
+.footer-directory {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+    margin: 0 auto;
+    padding-bottom: 10px;
+}
+
+.footer-directory.is-single-column {
+    grid-template-columns: 1fr;
+}
+
+.directory-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.directory-title {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    letter-spacing: 0.02em;
+}
+
+.directory-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-directory.is-single-column .directory-list {
+    column-count: 2;
+    column-gap: 4rem;
+}
+
+.directory-list li {
+    margin-bottom: 0.5rem;
+}
+
+.directory-list a {
+    font-size: 12px;
+    text-decoration: none;
+}
+
+@media (max-width: 768px) {
+
+    .footer-directory,
+    .footer-directory.is-single-column {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-directory.is-single-column .directory-list {
+        column-count: 1;
+    }
+}
+
+.nav-footer-copyright {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 15px;
+    padding-bottom: 12px;
+    border-top: 1px solid var(--footer-border-color);
+    font-size: 14px;
+}
+
+.nav-footer-copyright,
+.copyright-links a {
+    color: var(--footer-text-active-color);
+}
+
+.dark-mode .nav-footer-copyright,
+.dark-mode .copyright-links a {
+    color: var(--footer-text-active-color-dark);
+}
+
+.copyright-text {
+    margin-right: 2rem;
+    white-space: nowrap;
+}
+
+.copyright-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.copyright-links a {
+    text-decoration: none;
+    padding: 0 10px;
+    border-right: 1px solid var(--footer-border-color);
+    line-height: 1;
+}
+
+.copyright-links a:first-child {
+    padding-left: 0;
+}
+
+.copyright-links a:last-child {
+    padding-right: 0;
+    border-right: none;
+}
+
+@media (max-width: 768px) {
+    .nav-footer-copyright {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .copyright-links {
+        row-gap: 8px;
+    }
+}

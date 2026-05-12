@@ -2,7 +2,7 @@
  * @Author: Conghao Wong
  * @Date: 2025-03-25 20:15:43
  * @LastEditors: Conghao Wong
- * @LastEditTime: 2026-01-29 16:38:31
+ * @LastEditTime: 2026-05-12 15:33:44
  * @Github: https://cocoon2wong.github.io
  * Copyright 2025 Conghao Wong, All Rights Reserved.
  */
@@ -109,15 +109,17 @@ body:not(.home-fullscreen-sections) .main-page-container .main-page-container::b
     background-color: var(--main-page-col);
 }
 
-.page-bg-gray .main-page-container {
-    background: var(--main-page-col-gray);
+.page-bg-gray .main-page-container,
+.page-bg-gray footer {
+    background-color: var(--main-page-col-gray);
 }
 
 .dark-mode.page-bg-white .main-page-container {
     background-color: var(--main-page-col-dark);
 }
 
-.dark-mode.page-bg-gray .main-page-container {
+.dark-mode.page-bg-gray .main-page-container,
+.dark-mode.page-bg-gray footer {
     background-color: var(--main-page-col-dark-gray);
 }
 
