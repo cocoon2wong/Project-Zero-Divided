@@ -5,7 +5,7 @@ layout: null
  * @Author: Conghao Wong
  * @Date: 2026-01-29 17:00:40
  * @LastEditors: Conghao Wong
- * @LastEditTime: 2026-05-13 10:44:53
+ * @LastEditTime: 2026-05-13 21:07:24
  * @Github: https://cocoon2wong.github.io
  * Copyright 2026 Conghao Wong, All Rights Reserved.
  */
@@ -80,13 +80,14 @@ layout: null
     margin-bottom: 20px;
 }
 
-.pagination-controls .page-link,
+.pagination-controls .btn-normal,
+.pagination-controls .btn-theme,
 .pagination-controls .pill_container {
-    height: 50px;
+    height: 38px;
 }
 
 .pagination-controls .pill_item {
-    width: 40px;
+    width: 30px;
     height: 100%;
     display: flex;
     align-items: center;
@@ -97,7 +98,8 @@ layout: null
     margin: 0;
 }
 
-.pagination-controls .page-link {
+.pagination-controls .btn-normal,
+.pagination-controls .btn-theme {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -110,9 +112,13 @@ layout: null
     gap: 10px;
 }
 
-.pagination-controls .pill_item:first-child,
+.pagination-controls .pill_item:first-child {
+    padding-left: 18px;
+    padding-right: 15px;
+}
 .pagination-controls .pill_item:last-child {
-    width: 45px;
+    padding-left: 15px;
+    padding-right: 18px;
 }
 
 .pagination-controls .pill_item.pill_active,
@@ -123,4 +129,9 @@ layout: null
 .dark-mode .pagination-controls .pill_item.pill_active,
 .dark-mode .pagination-controls .pill_item.pill_active:hover {
     color: var(--btn-theme-active-background-col);
+}
+
+#post-list .post-preview .post-image {
+    height: 5rem;
+    max-width: 175px;
 }
