@@ -37,7 +37,9 @@ layout: page
       {% endif %}
 
       <a href="{{ post.url | absolute_url }}">
-        <h2 class="post-title">{{ post.title | strip_html }}</h2>
+        {% unless page.hide_post_title %}
+          <h2 class="post-title">{{ post.title | strip_html }}</h2>
+        {% endunless %}
 
         {% if post.subtitle %}
           <h3 class="post-subtitle">
@@ -46,12 +48,12 @@ layout: page
         {% endif %}
       </a>
 
-      {% if post.author %}
-        <span>By <strong>{{ post.author | strip_html }}</strong></span>
-      {% endif %}
       <p class="post-meta">
+        {% if post.author %}
+          <span>By <strong>{{ post.author | strip_html }}.</strong></span>
+        {% endif %}
         {% assign date_format = site.date_format | default: "%B %-d, %Y" %}
-        Posted on {{ post.date | date: date_format }}
+        Posted on {{ post.date | date: date_format }}.
       </p>
 
       {% if thumbnail != "" %}

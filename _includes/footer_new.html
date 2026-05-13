@@ -50,10 +50,12 @@
                     {%- else -%}
                         <li>
                             {%- assign display_text = link[0] -%}
-                            
                             {%- assign check_text = display_text | strip | upcase -%}
                             
-                            {%- if check_text == "UNPREDICTABLE" -%}
+                            {%- if site.full_names[display_text] -%}
+                                {%- assign display_text = site.full_names[display_text] -%}
+                            
+                            {%- elsif check_text == "UNPREDICTABLE" -%}
                                 {%- assign display_text = "Project Unpredictable" -%}
                             {%- endif -%}
                             
