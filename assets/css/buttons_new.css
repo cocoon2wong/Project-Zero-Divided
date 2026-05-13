@@ -5,7 +5,7 @@ layout: null
  * @Author: Conghao Wong
  * @Date: 2026-01-29 17:00:40
  * @LastEditors: Conghao Wong
- * @LastEditTime: 2026-01-29 18:42:58
+ * @LastEditTime: 2026-05-13 10:44:53
  * @Github: https://cocoon2wong.github.io
  * Copyright 2026 Conghao Wong, All Rights Reserved.
  */
@@ -22,6 +22,7 @@ layout: null
 
 .pagination .next .page-link,
 .pagination .previous .page-link,
+.pagination-controls .pill_container,
 .btn-normal,
 .btn-theme {
     border: 0;
@@ -40,6 +41,7 @@ layout: null
 
 .dark-mode .pagination .next .page-link,
 .dark-mode .pagination .previous .page-link,
+.dark-mode .pagination-controls .pill_container,
 .dark-mode .btn-normal,
 .dark-mode .btn-theme {
     box-shadow:
@@ -49,12 +51,14 @@ layout: null
 
 /* 普通按钮的平常状态 */
 .pagination .previous .page-link,
+.pagination-controls .pill_container,
 .btn-normal {
     color: var(--btn-normal-text-color);
     background-color: var(--btn-normal-background-col);
 }
 
 .dark-mode .pagination .previous .page-link,
+.dark-mode .pagination-controls .pill_container,
 .dark-mode .btn-normal {
     color: var(--btn-normal-text-color-dark);
     background-color: var(--btn-normal-background-col-dark);
@@ -68,4 +72,55 @@ layout: null
 .btn-theme {
     color: var(--btn-theme-active-col);
     background-color: var(--btn-theme-active-background-col);
+}
+
+/* Pagination Controls */
+.pagination-controls {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.pagination-controls .page-link,
+.pagination-controls .pill_container {
+    height: 50px;
+}
+
+.pagination-controls .pill_item {
+    width: 40px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pagination-controls .pagination.blog-pager {
+    margin: 0;
+}
+
+.pagination-controls .page-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pagination-controls .pagination-left-group,
+.pagination-controls .pagination-right-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.pagination-controls .pill_item:first-child,
+.pagination-controls .pill_item:last-child {
+    width: 45px;
+}
+
+.pagination-controls .pill_item.pill_active,
+.pagination-controls .pill_item.pill_active:hover {
+    color: var(--btn-theme-active-background-col);
+}
+
+.dark-mode .pagination-controls .pill_item.pill_active,
+.dark-mode .pagination-controls .pill_item.pill_active:hover {
+    color: var(--btn-theme-active-background-col);
 }
