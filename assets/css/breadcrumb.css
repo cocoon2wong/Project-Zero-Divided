@@ -5,14 +5,16 @@ layout: null
  * @Author: Conghao Wong
  * @Date: 2025-03-21 15:05:13
  * @LastEditors: Conghao Wong
- * @LastEditTime: 2026-01-29 15:05:09
+ * @LastEditTime: 2026-05-14 15:22:54
  * @Github: https://cocoon2wong.github.io
  * Copyright 2025 Conghao Wong, All Rights Reserved.
  */
 
 :root {
-    --breadcrumb-color: #6c757da0;
-    --breadcrumb-color-dark: #9a9a9a;
+    /* --breadcrumb-color: #6c757da0;
+    --breadcrumb-color-dark: #9a9a9a; */
+    --breadcrumb-color: #616A72;
+    --breadcrumb-color-dark: #FFFFFF;
     --breadcrumb-hover-color: #FFFFFF;
     --breadcrumb-active-color: #616A72;
     --breadcrumb-active-color-dark: #FFFFFF;
@@ -86,7 +88,43 @@ layout: null
     color: var(--breadcrumb-active-color-dark);
 }
 
-.breadcrumb-item > a:hover {
+.breadcrumb-item > a:hover,
+.breadcrumb-navigation-container .breadcrumb-container .btn:hover {
     color: var(--breadcrumb-hover-color);
     background-color: var(--breadcrumb-hover-background-color);
+}
+
+.breadcrumb-navigation-container {
+    position: relative;
+    display: flex;               
+    justify-content: flex-start; 
+    align-items: center;
+    gap: 10px;                  
+}
+
+.breadcrumb-navigation-container .breadcrumb-container .btn {
+    height: 37px;
+    background-color: unset;
+    border-color: unset;
+    box-shadow: unset;
+}
+
+.breadcrumb-container.btn-container {
+    padding: 0;
+}
+
+.breadcrumb-navigation-container .breadcrumb-container.btn-container:has(.btn.d-none) {
+    display: none;
+}
+
+.breadcrumb-container.btn-container .btn {
+    color: var(--breadcrumb-active-color);
+}
+
+.dark-mode .breadcrumb-container.btn-container .btn {
+    color: var(--breadcrumb-active-color-dark);
+}
+
+.breadcrumb-item.active::before {
+    padding-right: 16px;
 }
