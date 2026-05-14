@@ -5,7 +5,7 @@ layout: null
  * @Author: Conghao Wong
  * @Date: 2025-04-09 10:06:30
  * @LastEditors: Conghao Wong
- * @LastEditTime: 2026-05-12 15:57:56
+ * @LastEditTime: 2026-05-14 09:45:11
  * @Github: https://cocoon2wong.github.io
  * Copyright 2025 Conghao Wong, All Rights Reserved.
  */
@@ -61,6 +61,7 @@ footer {
 /* --- Post and page headers --- */
 
 .intro-header.big-img {
+    margin-top: 0;
     margin-bottom: 0;
 }
 
@@ -116,19 +117,6 @@ div.highlight:hover > .codebox-title {
 .codebox-title > a.btn-colorful {
     border-radius: 999px;
     line-height: 1.1;
-}
-
-.post-preview.pill {
-    padding: 20px 22px;
-    border-radius: 27px;
-    background: #ffffff;
-    border-radius: 27px;
-    width: 100%;
-    margin-top: 20px;
-}
-
-.dark-mode .post-preview.pill {
-    background: #2f2f2f;
 }
 
 .posts-list {

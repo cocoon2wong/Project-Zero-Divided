@@ -2,7 +2,7 @@
  * @Author: Conghao Wong
  * @Date: 2026-01-27 17:30:40
  * @LastEditors: Conghao Wong
- * @LastEditTime: 2026-01-27 20:04:27
+ * @LastEditTime: 2026-05-14 09:15:10
  * @Github: https://cocoon2wong.github.io
  * Copyright 2026 Conghao Wong, All Rights Reserved.
  */
@@ -44,6 +44,10 @@ header.header-section.fullscreen-hero .intro-header.big-img {
 /* =========================
    HOME: make markdown content truly full-bleed
    ========================= */
+
+body.home-fullscreen-sections {
+  overflow-x: hidden;
+}
 
 body.home-fullscreen-sections main,
 body.home-fullscreen-sections .main-content,
@@ -125,11 +129,11 @@ header.header-section.fullscreen-hero .page-subheading {
    7. Optional: nicer first-screen breathing
    ===================================================== */
 
-@media (min-width: 992px) {
+/* @media (min-width: 992px) {
   header.header-section.fullscreen-hero .page-heading {
     transform: translateY(-4%);
   }
-}
+} */
 
 /* =========================
    HOME fullscreen scenes
@@ -201,6 +205,19 @@ body.home-fullscreen-sections .home-scene-cta .btn {
 body.home-fullscreen-sections .main-page-container {
   padding-bottom: 0;
 }
+
+body.home-fullscreen-sections .main-page-container .row:has(.home-scene),
+.beautiful-jekyll-footer>.row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+body.home-fullscreen-sections .main-page-container .home-scene {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+beautiful-jekyll-footer>.row 
 
 /* =========================
    Scene alignment switch
