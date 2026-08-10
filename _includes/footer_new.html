@@ -1,4 +1,24 @@
 {%- unless site.hide-detailed-footer -%}
+    {%- if page.footnotes or page.footnote -%}
+    <section class="footer-footnotes" aria-label="Footnotes">
+        <ol class="footer-footnotes-list">
+            {%- if page.footnotes -%}
+                {%- for footnote in page.footnotes -%}
+                <li>
+                    <span class="footnote-number">{{ forloop.index }}.</span>
+                    <span class="footnote-text">{{ footnote | replace_first: '1. ', '' | replace_first: '2. ', '' | replace_first: '3. ', '' | replace_first: '4. ', '' | replace_first: '5. ', '' }}</span>
+                </li>
+                {%- endfor -%}
+            {%- elsif page.footnote -%}
+                <li>
+                    <span class="footnote-number">1.</span>
+                    <span class="footnote-text">{{ page.footnote }}</span>
+                </li>
+            {%- endif -%}
+        </ol>
+    </section>
+    {%- endif -%}
+
     <nav class="footer-nav breadcrumb-container" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
     {% assign crumbs = page.url | remove:'/index.html' | split: '/' %}
         <ol class="breadcrumb">

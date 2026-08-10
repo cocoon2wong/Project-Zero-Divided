@@ -2,7 +2,7 @@
  * @Author: Conghao Wong
  * @Date: 2026-05-12 14:57:08
  * @LastEditors: Conghao Wong
- * @LastEditTime: 2026-05-12 18:49:59
+ * @LastEditTime: 2026-08-10 20:03:15
  * @Github: https://cocoon2wong.github.io
  * Copyright 2026 Conghao Wong, All Rights Reserved.
  */
@@ -11,6 +11,81 @@
     --footer-text-active-color: #616A72;
     --footer-text-active-color-dark: #FFFFFF;
     --footer-border-color: #00000035;
+}
+
+/* Reduce overall footer top padding ONLY when footnote is present */
+footer:has(.footer-footnotes) {
+    padding-top: 6px !important;
+}
+
+/* Reduce bottom margin of last section on full-screen homepage */
+body.home-fullscreen-sections .home-scene:last-of-type {
+    margin-bottom: 0 !important;
+}
+
+/* --- Apple-style Global Footer Footnotes --- */
+
+.footer-footnotes {
+    padding-top: 4px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--footer-border-color);
+    margin-bottom: 12px;
+    font-size: 11px;
+    line-height: 1.33337;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    color: var(--footer-text-active-color);
+    text-align: left;
+}
+
+.dark-mode .footer-footnotes {
+    color: var(--footer-text-active-color-dark);
+    opacity: 0.8;
+}
+
+.footer-footnotes-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-footnotes-list li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 0.5rem;
+    font-size: 11px;
+    line-height: 1.33337;
+    color: inherit;
+}
+
+.footer-footnotes-list li:last-child {
+    margin-bottom: 0;
+}
+
+/* Perfect Flexbox Hanging Indent for Numbered Footnotes */
+.footer-footnotes-list .footnote-number {
+    flex-shrink: 0;
+    width: 1.4em;
+    text-align: left;
+    color: inherit;
+}
+
+.footer-footnotes-list .footnote-text {
+    flex: 1;
+}
+
+.footer-footnotes-list a {
+    color: inherit;
+    text-decoration: underline;
+}
+
+.footer-footnotes-list a:hover {
+    color: var(--footer-hover-col, #0085A1);
+}
+
+.footer-footnotes + .footer-nav.breadcrumb-container {
+    border-top: none !important;
+    padding-top: 0;
 }
 
 .footer-nav.breadcrumb-container {
